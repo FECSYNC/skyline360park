@@ -1,0 +1,18 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.18" stroke-width="1.5">
+    <path d="M0 80 Q100 40 200 80 T400 80 T600 80 T800 80"/>
+    <path d="M0 160 Q100 120 200 160 T400 160 T600 160 T800 160"/>
+    <path d="M0 240 Q100 200 200 240 T400 240 T600 240 T800 240"/>
+    <path d="M0 320 Q100 280 200 320 T400 320 T600 320 T800 320"/>
+    <path d="M0 400 Q100 360 200 400 T400 400 T600 400 T800 400"/>
+    <path d="M0 480 Q100 440 200 480 T400 480 T600 480 T800 480"/>
+    <path d="M0 560 Q100 520 200 560 T400 560 T600 560 T800 560"/>
+    <path d="M0 640 Q100 600 200 640 T400 640 T600 640 T800 640"/>
+    <path d="M0 720 Q100 680 200 720 T400 720 T600 720 T800 720"/>
+    <ellipse cx="200" cy="300" rx="120" ry="70"/>
+    <ellipse cx="200" cy="300" rx="90" ry="50"/>
+    <ellipse cx="550" cy="500" rx="140" ry="80"/>
+    <ellipse cx="550" cy="500" rx="100" ry="55"/>
+    <ellipse cx="650" cy="180" rx="100" ry="60"/>
+  </g>
+</svg>

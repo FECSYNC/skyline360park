@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<!--
+  Skyline 360 Park — multi-step location waiver (UX patterned after common park waiver flows)
+  Design, front-end architecture & build: Steve Ubangha Ewa
+  https://nazarng.com/steve.html
+  Legal text is original Skyline copy — have counsel review before go-live.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign Waiver | Skyline 360 Park</title>
+  <meta name="description" content="Select your Skyline 360 Park location, complete your details, and sign the guest waiver.">
+  <meta name="author" content="Steve Ubangha Ewa">
+  <link rel="author" href="https://nazarng.com/steve.html">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="css/styles.css?v=20260905-16">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=20260905-16">
+</head>
+<body data-page="waiver" class="waiver-app">
+  <div class="waiver-atmosphere" aria-hidden="true">
+    <div class="waiver-atmosphere-photo">
+      <img src="assets/skylinepics/opt/s1-1200.jpg" alt="" width="1200" height="800" decoding="async">
+    </div>
+    <div class="waiver-atmosphere-topo"></div>
+    <div class="waiver-atmosphere-glow waiver-glow-a"></div>
+    <div class="waiver-atmosphere-glow waiver-glow-b"></div>
+    <div class="waiver-atmosphere-glow waiver-glow-c"></div>
+    <span class="waiver-spark"></span>
+    <span class="waiver-spark"></span>
+    <span class="waiver-spark"></span>
+    <span class="waiver-spark"></span>
+    <span class="waiver-spark"></span>
+    <span class="waiver-spark"></span>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand brand-panel" href="index.html" aria-label="Skyline 360 Park home">
+        <img class="brand-chrome" src="assets/nav-brand-chrome.svg" alt="" width="340" height="120" aria-hidden="true" decoding="async" fetchpriority="low">
+        <img class="brand-logo" src="assets/logo-nav.png" alt="Skyline 360 Park" width="412" height="176" decoding="async" fetchpriority="high">
+      </a>
+
+      <div class="header-main">
+        <img class="header-main-chrome" src="assets/nav-bar-chrome.svg" alt="" width="980" height="100" aria-hidden="true" decoding="async" fetchpriority="low">
+        <div class="header-main-body">
+          <nav class="nav-desktop" aria-label="Primary">
+            <a class="nav-link" href="attractions.html">
+              <span class="nav-ico nav-ico-attractions" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none"><path d="M4 24 L10 12 L15 20 L19 10 L28 24 Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M19 10 V6 M19 6 L16.5 8.5 M19 6 L21.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="nav-label">Attractions</span>
+            </a>
+            <div class="nav-item has-dropdown">
+              <button type="button" class="nav-dropdown-toggle nav-link" aria-expanded="false" aria-haspopup="true">
+                <span class="nav-ico nav-ico-location" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" fill="none"><path d="M16 28s-9-9.2-9-15a9 9 0 1 1 18 0c0 5.8-9 15-9 15z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="16" cy="13" r="3.2" stroke="currentColor" stroke-width="2.2"/></svg>
+                </span>
+                <span class="nav-label">Location <span class="nav-caret" aria-hidden="true"></span></span>
+              </button>
+              <div class="nav-dropdown" role="menu">
+                <div class="nav-dropdown-inner">
+                  <a href="location.html?id=katy" role="menuitem">Katy, Texas</a>
+                  <a href="location.html?id=fort-worth" role="menuitem">Fort Worth, Texas</a>
+                  <a href="location.html?id=pennsylvania" role="menuitem">Pennsylvania</a>
+                </div>
+              </div>
+            </div>
+            <a class="nav-link" href="contact.html">
+              <span class="nav-ico nav-ico-contact" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none"><path d="M10 8c0-1.5 1.2-3 3-3h1.2c.7 0 1.3.4 1.5 1.1l1 3.2c.2.7 0 1.4-.6 1.8l-1.4 1c1.4 2.8 3.6 5 6.4 6.4l1-1.4c.4-.6 1.1-.8 1.8-.6l3.2 1c.7.2 1.1.8 1.1 1.5V21c0 1.8-1.5 3-3 3C14.6 24 8 17.4 8 10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M22 7c1.8 1 3.2 2.4 4 4M23.5 4.5c2.6 1.4 4.6 3.5 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </span>
+              <span class="nav-label nav-label-contact">Contact</span>
+            </a>
+          
+            <a class="nav-link" href="waiver.html?mode=walkin">
+              <span class="nav-ico nav-ico-waiver" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none"><path d="M8 6h12l4 4v16H8V6z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M20 6v4h4M12 14h8M12 18h8M12 22h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </span>
+              <span class="nav-label">Waiver</span>
+            </a></nav>
+
+          <div class="header-ctas">
+            <a class="btn-stamp btn-stamp-party" href="book-party.html">
+              <span class="btn-stamp-ico" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none"><path d="M8 26 L14 12 L20 26 Z" fill="currentColor"/><path d="M14 12 L16 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="20" cy="8" r="1.4" fill="currentColor"/><circle cx="24" cy="12" r="1.2" fill="currentColor"/><circle cx="22" cy="16" r="1.1" fill="currentColor"/><path d="M18 10l4-2M19 14l5 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </span>
+              <span class="btn-stamp-text">Book a Party</span>
+              <span class="btn-stamp-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M10 8l4 4-4 4" stroke="#1a0530" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
+            <a class="btn-stamp btn-stamp-visit" href="franchise.html">
+              <span class="btn-stamp-ico" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none"><path d="M4 26h24M6 26V12l10-7 10 7v14" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M13 26v-7h6v7" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M12 14h2M18 14h2M12 18h2M18 18h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </span>
+              <span class="btn-stamp-text">Franchise With Us</span>
+              <span class="btn-stamp-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M10 8l4 4-4 4" stroke="#1a0530" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+    <a href="attractions.html">Attractions</a>
+    <div class="mobile-dropdown">
+      <button type="button" class="mobile-dropdown-toggle" aria-expanded="false">
+        Location
+        <span class="nav-caret" aria-hidden="true"></span>
+      </button>
+      <div class="mobile-dropdown-panel">
+        <a href="location.html?id=katy">Katy, Texas</a>
+        <a href="location.html?id=fort-worth">Fort Worth, Texas</a>
+        <a href="location.html?id=pennsylvania">Pennsylvania</a>
+      </div>
+    </div>
+    <a href="contact.html">Contact</a>
+    
+    <a href="waiver.html?mode=walkin">Waiver</a>
+<div class="mobile-nav-ctas">
+      <a class="btn-stamp btn-stamp-party" href="book-party.html">
+        <span class="btn-stamp-text">Book a Party</span>
+      </a>
+      <a class="btn-stamp btn-stamp-visit" href="franchise.html">
+        <span class="btn-stamp-text">Franchise With Us</span>
+      </a>
+    </div>
+  </nav>
+
+  <main class="waiver-main">
+  <div class="waiver-shell">
+    <p class="waiver-page-tag"><span>360°</span> Guest Waiver</p>
+
+    <nav class="waiver-steps-rail" data-waiver-steps-rail aria-label="Waiver progress">
+      <button type="button" class="waiver-rail-dot is-active" data-rail="location" disabled><em>1</em><span>Location</span></button>
+      <button type="button" class="waiver-rail-dot" data-rail="email" disabled><em>2</em><span>Email</span></button>
+      <button type="button" class="waiver-rail-dot" data-rail="details" disabled><em>3</em><span>Details</span></button>
+      <button type="button" class="waiver-rail-dot" data-rail="legal" disabled><em>4</em><span>Sign</span></button>
+    </nav>
+
+    <form class="waiver-form" data-waiver-form action="waiver-mail.php" method="post" novalidate>
+      <input type="hidden" name="started_at" data-waiver-started value="">
+      <input type="hidden" name="park_id" data-waiver-park-id value="">
+      <input type="hidden" name="plan_id" data-waiver-plan-id value="">
+      <input type="hidden" name="captcha_token" data-waiver-captcha-token value="">
+      <input type="hidden" name="mode" data-waiver-mode value="self">
+      <input type="hidden" name="minors_json" data-waiver-minors-json value="[]">
+      <input type="hidden" name="fill_method" data-waiver-fill-method value="manual">
+      <div class="hp-field" aria-hidden="true">
+        <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+      </div>
+
+      <!-- STEP 1: Location -->
+      <section class="waiver-step" data-waiver-step="location" hidden>
+        <div class="waiver-panel">
+          <div class="waiver-loc-banner">
+            <button type="button" class="waiver-loc-close" data-waiver-exit aria-label="Close">×</button>
+            <p class="waiver-eyebrow">Start here</p>
+            <h1>Select your park so you can sign the correct waiver</h1>
+            <p class="waiver-banner-lead">Each Skyline location manages its own guest waiver and inbox.</p>
+          </div>
+          <div class="waiver-card waiver-card-loc">
+            <div class="waiver-link-confirm" data-waiver-link-confirm hidden>
+              <p class="waiver-link-confirm-kicker">Shared waiver link</p>
+              <p class="waiver-link-confirm-lead">
+                This link opens the waiver for
+                <strong data-waiver-link-confirm-park>this park</strong>
+                <span data-waiver-link-confirm-plan-wrap hidden>
+                  · <strong data-waiver-link-confirm-plan></strong>
+                </span>.
+              </p>
+              <p class="waiver-link-confirm-note">
+                Confirm this is the location you’re visiting before you continue — or pick a different park below.
+              </p>
+              <div class="waiver-link-confirm-actions">
+                <button type="button" class="waiver-link-confirm-yes" data-waiver-link-confirm-yes>
+                  Yes, this is my park
+                </button>
+                <button type="button" class="waiver-link-confirm-change" data-waiver-link-confirm-change>
+                  Choose a different park
+                </button>
+              </div>
+            </div>
+            <div class="waiver-walkin-banner" data-waiver-walkin-banner hidden>
+              <p class="waiver-walkin-kicker">Walk-in</p>
+              <p class="waiver-walkin-lead" data-waiver-walkin-lead>
+                Sign once for this park, then choose any plan to book. No plan selection needed here.
+              </p>
+              <div class="waiver-walkin-actions" data-waiver-walkin-pass-actions hidden>
+                <button type="button" class="waiver-link-confirm-yes" data-waiver-walkin-continue-plans>
+                  Continue to plans
+                </button>
+                <button type="button" class="waiver-link-confirm-change" data-waiver-walkin-new-guest>
+                  New guest
+                </button>
+              </div>
+            </div>
+            <label class="waiver-field-label" for="waiver-park-select">Select location</label>
+            <div class="waiver-loc-row">
+              <select id="waiver-park-select" data-waiver-park-select required>
+                <option value="">Choose a park…</option>
+              </select>
+              <button type="button" class="btn-stamp btn-stamp-visit waiver-stamp-next" data-waiver-next="email">
+                <span class="btn-stamp-text">Continue to waiver</span>
+                <span class="btn-stamp-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M10 8l4 4-4 4" stroke="#1a0530" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </button>
+            </div>
+            <div data-waiver-plan-field>
+              <label class="waiver-field-label" for="waiver-plan-select">Plan for this visit</label>
+              <select id="waiver-plan-select" data-waiver-plan-select required>
+                <option value="">Choose a plan…</option>
+              </select>
+            </div>
+            <p class="waiver-hint" data-waiver-loc-error hidden>Please select a park and plan to continue.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2: Email -->
+      <section class="waiver-step" data-waiver-step="email" hidden>
+        <div class="waiver-card waiver-card-lift">
+          <div class="waiver-card-accent" aria-hidden="true"></div>
+          <p class="waiver-eyebrow dark">Almost there</p>
+          <h2 class="waiver-step-title" data-waiver-context-title data-waiver-email-heading>Sign your waiver</h2>
+          <p class="waiver-plan-chip" data-waiver-plan-label hidden></p>
+          <p class="waiver-lead">Enter your email for your confirmation copy from this park only.</p>
+          <label class="waiver-input-wrap">
+            <span class="waiver-visually-hidden">Email address</span>
+            <input type="email" name="email" data-waiver-email autocomplete="email" maxlength="120" placeholder="Email address*" required>
+          </label>
+          <p class="waiver-field-error" data-waiver-email-error hidden>Email address is required</p>
+          <p class="waiver-note">You must be 18 or older to sign this document.</p>
+          <div class="waiver-nav-row waiver-nav-row-single">
+            <button type="button" class="btn-stamp btn-stamp-visit waiver-stamp-next" data-waiver-next="method">
+              <span class="btn-stamp-text">Continue</span>
+              <span class="btn-stamp-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M10 8l4 4-4 4" stroke="#1a0530" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2b: Fill method -->
+      <section class="waiver-step" data-waiver-step="method" hidden>
+        <div class="waiver-card waiver-card-lift">
+          <div class="waiver-card-accent" aria-hidden="true"></div>
+          <div data-waiver-method-intro>
+            <p class="waiver-eyebrow dark">Faster fill</p>
+            <h2 class="waiver-step-title">How do you want to complete your details?</h2>
+            <p class="waiver-lead">Choose one option below. You can scan an ID, scan a typed page, or type everything yourself.</p>
+          </div>
+
+          <div class="waiver-fill-choice" role="group" aria-label="Fill method" data-waiver-fill-choice-group>
+            <button type="button" class="waiver-fill-choice-btn" data-waiver-fill-choice="scan">
+              <span class="waiver-fill-choice-title">Scan ID or document</span>
+              <span class="waiver-fill-choice-text">Photo of an ID card or a typed details page — we read either</span>
+            </button>
+            <button type="button" class="waiver-fill-choice-btn" data-waiver-fill-choice="document">
+              <span class="waiver-fill-choice-title">Scan a printed document</span>
+              <span class="waiver-fill-choice-text">Photo of typed details from a phone, computer screen, or printed page</span>
+            </button>
+            <button type="button" class="waiver-fill-choice-btn" data-waiver-fill-choice="manual">
+              <span class="waiver-fill-choice-title">Fill manually</span>
+              <span class="waiver-fill-choice-text">Type your details the usual way</span>
+            </button>
+          </div>
+
+          <div class="waiver-id-scan" data-waiver-id-scan hidden>
+            <p class="waiver-mini-label" data-waiver-scan-title>ID or document photo</p>
+            <p class="waiver-id-scan-hint" data-waiver-scan-hint hidden></p>
+            <div class="waiver-doc-guide" data-waiver-doc-checklist hidden>
+              <div class="waiver-doc-guide-inner">
+                <p class="waiver-doc-guide-title">What to put on your page</p>
+                <button type="button" class="waiver-doc-guide-btn" data-waiver-doc-checklist-open>
+                  View what to include
+                </button>
+              </div>
+            </div>
+            <p class="waiver-id-scan-note" data-waiver-scan-note hidden></p>
+            <div class="waiver-id-scan-grid">
+              <div class="waiver-id-slot" data-waiver-id-slot="front">
+                <p class="waiver-id-slot-label" data-waiver-slot-label="front">Front of ID*</p>
+                <div class="waiver-id-preview" data-waiver-id-preview="front">
+                  <span data-waiver-id-empty>No photo yet</span>
+                </div>
+                <div class="waiver-id-slot-actions">
+                  <label class="waiver-btn-secondary waiver-id-file-label">
+                    Upload
+                    <input type="file" accept="image/*" data-waiver-id-file="front" hidden>
+                  </label>
+                  <button type="button" class="waiver-btn-secondary" data-waiver-id-camera="front">Camera</button>
+                  <button type="button" class="waiver-btn-secondary waiver-is-hidden" data-waiver-id-clear="front" hidden aria-hidden="true">Retake</button>
+                </div>
+              </div>
+              <div class="waiver-id-slot" data-waiver-id-slot="back" data-waiver-slot-back>
+                <p class="waiver-id-slot-label" data-waiver-slot-label="back">Extra page (optional)</p>
+                <div class="waiver-id-preview" data-waiver-id-preview="back">
+                  <span data-waiver-id-empty>No photo yet</span>
+                </div>
+                <div class="waiver-id-slot-actions">
+                  <label class="waiver-btn-secondary waiver-id-file-label">
+                    Upload
+                    <input type="file" accept="image/*" data-waiver-id-file="back" hidden>
+                  </label>
+                  <button type="button" class="waiver-btn-secondary" data-waiver-id-camera="back">Camera</button>
+                  <button type="button" class="waiver-btn-secondary waiver-is-hidden" data-waiver-id-clear="back" hidden aria-hidden="true">Retake</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="waiver-id-camera-panel" data-waiver-id-camera-panel hidden>
+              <video data-waiver-id-video playsinline autoplay muted></video>
+              <div class="waiver-id-camera-actions">
+                <button type="button" class="btn-stamp btn-stamp-visit" data-waiver-id-capture>
+                  <span class="btn-stamp-text">Capture photo</span>
+                </button>
+                <button type="button" class="waiver-btn-secondary" data-waiver-id-camera-cancel>Cancel</button>
+              </div>
+            </div>
+
+            <p class="waiver-field-error" data-waiver-id-scan-error hidden></p>
+            <p class="waiver-id-scan-status" data-waiver-id-scan-status hidden role="status" aria-live="polite"></p>
+
+            <div class="waiver-id-extract-loader" data-waiver-id-extract-loader hidden aria-live="assertive" aria-busy="false">
+              <div class="waiver-id-extract-loader-card">
+                <div class="waiver-id-extract-spinner" aria-hidden="true"></div>
+                <p class="waiver-id-extract-loader-title" data-waiver-id-extract-title>Extracting details…</p>
+                <p class="waiver-id-extract-loader-detail" data-waiver-id-extract-detail>Please wait — do not tap Extract again.</p>
+                <div class="waiver-id-extract-bar" aria-hidden="true"><span></span></div>
+              </div>
+            </div>
+
+            <div class="waiver-nav-row">
+              <button type="button" class="btn-stamp btn-stamp-party waiver-stamp-prev" data-waiver-id-scan-cancel>
+                <span class="btn-stamp-arrow waiver-stamp-back-ico" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M14 8l-4 4 4 4" stroke="#1a0530" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span class="btn-stamp-text">Back to options</span>
+              </button>
+              <button type="button" class="btn-stamp btn-stamp-visit waiver-stamp-next" data-waiver-id-scan-submit disabled aria-disabled="true" title="Add a clear photo of your ID or typed page first">
+                <span class="btn-stamp-text" data-waiver-scan-submit-label>Extract details</span>
+                <span class="btn-stamp-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M10 8l4 4-4 4" stroke="#1a0530" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <div class="waiver-nav-row" data-waiver-method-nav>
+            <button type="button" class="btn-stamp btn-stamp-party waiver-stamp-prev" data-waiver-back>
+              <span class="btn-stamp-arrow waiver-stamp-back-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M14 8l-4 4 4 4" stroke="#1a0530" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="btn-stamp-text">Previous</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3: Details -->
+      <section class="waiver-step" data-waiver-step="details" hidden>
+        <div class="waiver-card waiver-card-lift">
+          <div class="waiver-card-accent" aria-hidden="true"></div>
+          <p class="waiver-eyebrow dark">Guest info</p>
+          <h2 class="waiver-step-title" data-waiver-context-title>Your details</h2>
+          <p class="waiver-plan-chip" data-waiver-plan-label hidden></p>
+          <p class="waiver-id-review-banner" data-waiver-id-review hidden>
+            We filled what we could from your ID. Please review those fields, then complete anything still required before continuing.
+          </p>
+          <div class="waiver-id-coach" data-waiver-id-coach hidden>
+            <p class="waiver-id-coach-title">Finish these next</p>
+            <p class="waiver-id-coach-lead">Your ID can’t provide every field. Tap an item to jump there — including fields lower on this page.</p>
+            <ul class="waiver-id-coach-list" data-waiver-id-coach-list></ul>
+          </div>
+
+          <div class="waiver-mode" role="tablist" aria-label="Who is this waiver for">
+            <button type="button" class="waiver-mode-btn is-active" data-waiver-mode-btn="minors" role="tab" aria-selected="true">
+              <span class="waiver-mode-ico" aria-hidden="true">👤+</span>
+              Me and minor(s)
+            </button>
+            <button type="button" class="waiver-mode-btn" data-waiver-mode-btn="self" role="tab" aria-selected="false">
+              <span class="waiver-mode-ico" aria-hidden="true">👤</span>
+              Just me
+            </button>
+          </div>
+
+          <p class="waiver-section-kicker" data-waiver-details-kicker>Your details (guardian)</p>
+
+          <div class="waiver-row-2">
+            <label class="waiver-input-wrap">
+              <span class="waiver-visually-hidden">First name</span>
+              <input type="text" name="first_name" autocomplete="given-name" required maxlength="80" placeholder="First name*">
+            </label>
+            <label class="waiver-input-wrap">
+              <span class="waiver-visually-hidden">Last name</span>
+              <input type="text" name="last_name" autocomplete="family-name" required maxlength="80" placeholder="Last name*">
+            </label>
+          </div>
+
+          <p class="waiver-mini-label">Date of birth</p>
+          <div class="waiver-dob" data-waiver-dob-group>
+            <div class="waiver-dob-pick" data-dob-pick="month">
+              <input type="hidden" name="dob_month" data-waiver-dob-month value="">
+              <button type="button" class="waiver-dob-toggle" data-dob-toggle aria-haspopup="listbox" aria-expanded="false">
+                <span data-dob-label>Month*</span>
+                <span class="waiver-phone-caret" aria-hidden="true">▾</span>
+              </button>
+              <div class="waiver-dob-panel" data-dob-panel hidden>
+                <input type="search" class="waiver-dob-search" data-dob-search placeholder="Search month…" autocomplete="off" aria-label="Search month">
+                <ul class="waiver-dob-list" data-dob-list role="listbox"></ul>
+              </div>
+            </div>
+            <div class="waiver-dob-pick" data-dob-pick="day">
+              <input type="hidden" name="dob_day" data-waiver-dob-day value="">
+              <button type="button" class="waiver-dob-toggle" data-dob-toggle aria-haspopup="listbox" aria-expanded="false">
+                <span data-dob-label>Day*</span>
+                <span class="waiver-phone-caret" aria-hidden="true">▾</span>
+              </button>
+              <div class="waiver-dob-panel" data-dob-panel hidden>
+                <input type="search" class="waiver-dob-search" data-dob-search placeholder="Search day…" autocomplete="off" aria-label="Search day">
+                <ul class="waiver-dob-list" data-dob-list role="listbox"></ul>
+              </div>
+            </div>
+            <div class="waiver-dob-pick" data-dob-pick="year">
+              <input type="hidden" name="dob_year" data-waiver-dob-year value="">
+              <button type="button" class="waiver-dob-toggle" data-dob-toggle aria-haspopup="listbox" aria-expanded="false">
+                <span data-dob-label>Year*</span>
+                <span class="waiver-phone-caret" aria-hidden="true">▾</span>
+              </button>
+              <div class="waiver-dob-panel" data-dob-panel hidden>
+                <input type="search" class="waiver-dob-search" data-dob-search placeholder="Search year…" autocomplete="off" aria-label="Search year">
+                <ul class="waiver-dob-list" data-dob-list role="listbox"></ul>
+              </div>
+            </div>
+          </div>
+          <input type="hidden" name="dob" data-waiver-dob value="">
+
+          <div class="waiver-phone" data-waiver-phone>
+            <input type="hidden" name="country_code" data-waiver-country-code value="+1">
+            <input type="hidden" name="country_iso" data-waiver-country-iso value="US">
+            <button type="button" class="waiver-phone-prefix" data-waiver-dial-toggle aria-haspopup="listbox" aria-expanded="false" aria-label="Select country code">
+              <span data-waiver-dial-flag>🇺🇸</span>
+              <span data-waiver-dial-code>+1</span>
+              <span class="waiver-phone-caret" aria-hidden="true">▾</span>
+            </button>
+            <input type="tel" name="phone" autocomplete="tel-national" maxlength="40" placeholder="Phone number*" required>
+            <div class="waiver-dial-panel" data-waiver-dial-panel hidden>
+              <div class="waiver-dial-search-wrap">
+                <input type="search" class="waiver-dial-search" data-waiver-dial-search placeholder="Search country or code…" autocomplete="off" aria-label="Search countries">
+              </div>
+              <ul class="waiver-dial-list" data-waiver-dial-list role="listbox"></ul>
+            </div>
+          </div>
+
+          <div class="waiver-suggest-field">
+            <label class="waiver-input-wrap">
+              <span class="waiver-visually-hidden">Search address</span>
+              <input type="search" name="address_search" data-waiver-address-search autocomplete="off" placeholder="Search address… *" maxlength="160" aria-autocomplete="list" aria-controls="waiver-addr-suggest-main">
+            </label>
+            <div class="waiver-addr-suggest" id="waiver-addr-suggest-main" data-waiver-addr-suggest="search" role="listbox" hidden></div>
+          </div>
+          <label class="waiver-check-inline">
+            <input type="checkbox" data-waiver-manual-address>
+            <span>Enter address manually</span>
+          </label>
+
+          <div class="waiver-manual-address" data-waiver-manual-fields hidden>
+            <div class="waiver-suggest-field">
+              <label class="waiver-input-wrap">
+                <input type="text" name="address" data-waiver-address autocomplete="off" maxlength="160" placeholder="Street address*" aria-autocomplete="list" aria-controls="waiver-addr-suggest-street">
+              </label>
+              <div class="waiver-addr-suggest" id="waiver-addr-suggest-street" data-waiver-addr-suggest="street" role="listbox" hidden></div>
+            </div>
+            <div class="waiver-row-2">
+              <div class="waiver-suggest-field">
+                <label class="waiver-input-wrap">
+                  <input type="text" name="city" data-waiver-city autocomplete="off" maxlength="80" placeholder="City*" aria-autocomplete="list" aria-controls="waiver-addr-suggest-city">
+                </label>
+                <div class="waiver-addr-suggest" id="waiver-addr-suggest-city" data-waiver-addr-suggest="city" role="listbox" hidden></div>
+              </div>
+              <div class="waiver-suggest-field">
+                <label class="waiver-input-wrap">
+                  <input type="text" name="state" data-waiver-state autocomplete="off" maxlength="80" placeholder="State*" aria-autocomplete="list" aria-controls="waiver-addr-suggest-state">
+                </label>
+                <div class="waiver-addr-suggest" id="waiver-addr-suggest-state" data-waiver-addr-suggest="state" role="listbox" hidden></div>
+              </div>
+            </div>
+            <div class="waiver-suggest-field">
+              <label class="waiver-input-wrap">
+                <input type="text" name="zip" data-waiver-zip autocomplete="off" maxlength="20" placeholder="Zip / postal code*" aria-autocomplete="list" aria-controls="waiver-addr-suggest-zip">
+              </label>
+              <div class="waiver-addr-suggest" id="waiver-addr-suggest-zip" data-waiver-addr-suggest="zip" role="listbox" hidden></div>
+            </div>
+            <p class="waiver-addr-hint">Start typing — pick a suggestion to autofill the matching address fields.</p>
+          </div>
+
+          <div class="waiver-minors" data-waiver-minors-wrap>
+            <div data-waiver-minors-list></div>
+            <button type="button" class="waiver-btn-secondary" data-waiver-add-minor>+ Add a minor</button>
+          </div>
+
+          <div class="waiver-row-2 waiver-emergency">
+            <label class="waiver-input-wrap">
+              <input type="text" name="emergency_name" required maxlength="120" placeholder="Emergency contact name*">
+            </label>
+            <label class="waiver-input-wrap">
+              <input type="tel" name="emergency_phone" required maxlength="40" placeholder="Emergency phone*">
+            </label>
+          </div>
+
+          <p class="waiver-field-error" data-waiver-details-error hidden></p>
+          <div class="waiver-nav-row">
+            <button type="button" class="btn-stamp btn-stamp-party waiver-stamp-prev" data-waiver-back>
+              <span class="btn-stamp-arrow waiver-stamp-back-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M14 8l-4 4 4 4" stroke="#1a0530" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="btn-stamp-text">Previous</span>
+            </button>
+            <button type="button" class="btn-stamp btn-stamp-visit waiver-stamp-next" data-waiver-next="legal">
+              <span class="btn-stamp-text">Continue</span>
+              <span class="btn-stamp-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M10 8l4 4-4 4" stroke="#1a0530" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 4: Safety + legal + accept -->
+      <section class="waiver-step" data-waiver-step="legal" hidden>
+        <p class="waiver-instruct"><strong>Please read the Agreement, tick every checkbox, then draw and type your signature. You cannot submit until this is complete.</strong></p>
+        <p class="waiver-plan-chip waiver-plan-chip-on-dark" data-waiver-plan-label hidden></p>
+
+        <div class="waiver-card waiver-safety-card waiver-card-lift">
+          <div class="waiver-safety-head">
+            <p class="waiver-eyebrow dark">Play safe</p>
+            <h2>Safety rules</h2>
+          </div>
+          <div class="waiver-safety-icons" aria-hidden="true">
+            <figure><span class="waiver-ico waiver-ico-ban">🏃</span><figcaption>No running</figcaption></figure>
+            <figure><span class="waiver-ico waiver-ico-ban">👯</span><figcaption>No double bouncing</figcaption></figure>
+            <figure><span class="waiver-ico waiver-ico-ban">🔄</span><figcaption>No double flips</figcaption></figure>
+            <figure><span class="waiver-ico waiver-ico-ban">⬇️</span><figcaption>No diving</figcaption></figure>
+            <figure><span class="waiver-ico waiver-ico-ok">👁️</span><figcaption>Be aware</figcaption></figure>
+            <figure><span class="waiver-ico waiver-ico-ok">💪</span><figcaption>Know limits</figcaption></figure>
+            <figure><span class="waiver-ico waiver-ico-ok">👨‍👩‍👧</span><figcaption>6 &amp; under zones</figcaption></figure>
+          </div>
+          <p>I, on behalf of myself and all individuals named herein, confirm that I and all individuals named herein have reviewed these Safety Rules and agree to follow the rules at this facility, including but not limited to:</p>
+          <ul class="waiver-safety-list">
+            <li><strong>NO</strong> running, double bouncing, double flips, gainers, or diving.</li>
+            <li>Always <strong>BE AWARE</strong> of your surroundings, other guests, and equipment condition.</li>
+            <li>Know your own physical limitations.</li>
+            <li>Observe age restrictions (including 6 and under) in marked areas.</li>
+          </ul>
+        </div>
+
+        <div class="waiver-card waiver-legal-card waiver-card-lift">
+          <div class="waiver-card-accent" aria-hidden="true"></div>
+          <p class="waiver-center-warn">**** Please read this document carefully ****</p>
+          <p class="waiver-center-title" data-waiver-legal-entity>SKYLINE 360 PARK</p>
+          <p class="waiver-center-sub">Participant indemnification, waiver, general release, and assumption of risk agreement (“Agreement”)</p>
+
+          <label class="waiver-legal-check">
+            <input type="checkbox" name="cb_safety" value="yes" data-waiver-cb required>
+            <span><strong>SAFETY RULES:</strong> I confirm that I and all individuals named herein have reviewed the Safety Rules, understand them, and agree to abide by them, including verbal instructions and posted signage at the PREMISES. I understand that violating Safety Rules may contribute to injury to myself or others.</span>
+          </label>
+
+          <label class="waiver-legal-check">
+            <input type="checkbox" name="cb_legal_rights" value="yes" data-waiver-cb required>
+            <span><strong>LEGAL RIGHTS:</strong> By signing this AGREEMENT, I understand that I am waiving certain rights for myself and the minors named herein, including the right to pursue certain legal claims against this Skyline 360 Park location arising from ordinary negligence, to the fullest extent allowed by law.</span>
+          </label>
+
+          <label class="waiver-legal-check">
+            <input type="checkbox" name="cb_authorization" value="yes" data-waiver-cb required>
+            <span><strong>AUTHORIZATION TO SIGN:</strong> I represent that I am 18 years of age or older and actually authorized to sign this AGREEMENT on behalf of all individuals named herein, and to waive rights held by those individuals to pursue claims against this location, its owners, operators, and staff for injury caused in whole or in part by ordinary negligence. I understand this location relies on that representation before allowing participation.</span>
+          </label>
+
+          <label class="waiver-legal-check">
+            <input type="checkbox" name="cb_personal" value="yes" data-waiver-cb required>
+            <span><strong>PERSONAL RESPONSIBILITY:</strong> To access the PREMISES and participate in ACTIVITIES (including trampolines, attractions, parties, and related play), I certify that I and all individuals named herein:
+              <ol>
+                <li>have no physical or mental condition, including pregnancy, that would prohibit or impair safe participation;</li>
+                <li>am/are not intoxicated or taking substances that would impair safe participation;</li>
+                <li>am/are not participating against medical advice;</li>
+                <li>will use judgment about fitness, skill, and health;</li>
+                <li>will only participate in ACTIVITIES for which we have sufficient skill to avoid injury;</li>
+                <li>will follow all rules, verbal instructions, and posted signage;</li>
+                <li>understand that, outside of those rules and instructions, staff may not provide step-by-step coaching for every attraction;</li>
+                <li>will closely supervise all individuals named herein while on the PREMISES; and</li>
+                <li>accept sole responsibility for our conduct and will not rely solely on staff monitoring.</li>
+              </ol>
+            </span>
+          </label>
+
+          <label class="waiver-legal-check">
+            <input type="checkbox" name="cb_assumption" value="yes" data-waiver-cb required>
+            <span><strong>ASSUMPTION OF RISK:</strong> The RELEASORS acknowledge that ACTIVITIES are dangerous with known and unknown risks that cannot be eliminated without changing the nature of the ACTIVITIES, including risk of serious injury, paralysis, or death. Risks may include falls, collisions, equipment or building issues, slips, illness, and contact with other guests. The RELEASORS voluntarily assume all risks related to the ACTIVITIES and PREMISES.</span>
+          </label>
+
+          <label class="waiver-legal-check">
+            <input type="checkbox" name="cb_release" value="yes" data-waiver-cb required>
+            <span><strong>RELEASE OF LIABILITY:</strong> Despite all known and unknown risks, I, on behalf of myself and all individuals named herein (collectively, the “RELEASORS”), release, waive, and forever discharge this Skyline 360 Park location and its owners, operators, employees, agents, insurers, and landlords (the “RELEASEES”) from claims for injury, loss, or damage arising from ordinary negligence related to the PREMISES or ACTIVITIES, to the fullest extent permitted by law.</span>
+          </label>
+
+          <label class="waiver-legal-check">
+            <input type="checkbox" name="cb_covenant" value="yes" data-waiver-cb required>
+            <span><strong>COVENANT NOT TO SUE:</strong> RELEASORS agree not to sue or make a claim against RELEASEES for damages or losses sustained while on the PREMISES or participating in ACTIVITIES, except to the extent a claim cannot be waived under applicable law.</span>
+          </label>
+
+          <label class="waiver-legal-check">
+            <input type="checkbox" name="cb_indemnify" value="yes" data-waiver-cb required>
+            <span><strong>DEFENSE AND INDEMNIFICATION:</strong> RELEASORS agree to defend and hold harmless RELEASEES from losses, claims, and costs arising from use of the PREMISES or ACTIVITIES by the individuals named herein, including claims related to the signatory’s authority to sign for a minor, to the fullest extent allowed by law.</span>
+          </label>
+
+          <label class="waiver-legal-check">
+            <input type="checkbox" name="cb_property" value="yes" data-waiver-cb required>
+            <span><strong>LIABILITY FOR PROPERTY:</strong> RELEASORS agree RELEASEES are not responsible for personal property (including vehicles or locker contents) that is damaged, lost, or stolen on the PREMISES.</span>
+          </label>
+
+          <label class="waiver-legal-check">
+            <input type="checkbox" name="cb_photo" value="yes" data-waiver-cb required>
+            <span><strong>PHOTOGRAPHY / VIDEO RELEASE:</strong> By entering the PREMISES, RELEASORS grant this location the right to photograph or record guests on the PREMISES and use those images for lawful advertising and promotional purposes without compensation, unless a written opt-out is arranged with the park.</span>
+          </label>
+
+          <label class="waiver-legal-check">
+            <input type="checkbox" name="cb_privacy" value="yes" data-waiver-cb required>
+            <span><strong>PRIVACY:</strong> RELEASORS understand this location may collect and use contact and visit information to operate the waiver and visit. Questions about personal information can be sent to this park’s email address shown after you select a location.</span>
+          </label>
+
+          <label class="waiver-legal-check">
+            <input type="checkbox" name="cb_terms" value="yes" data-waiver-cb required>
+            <span><strong>TERMS OF AGREEMENT AND SEVERABILITY:</strong> This AGREEMENT is intended to be as broad as allowed by law for visits to this location. If any provision is held invalid, the remaining provisions continue in effect. This AGREEMENT is governed by the laws of the state where this park location operates.</span>
+          </label>
+
+          <label class="waiver-legal-check">
+            <input type="checkbox" name="cb_arbitration" value="yes" data-waiver-cb required>
+            <span><strong>ARBITRATION AND VENUE:</strong> Except where prohibited, disputes arising from this AGREEMENT, the PREMISES, or ACTIVITIES shall be resolved by binding individual arbitration in the state where this location operates, near the PREMISES. Class actions are waived to the extent allowed by law.</span>
+          </label>
+
+          <label class="waiver-legal-check">
+            <input type="checkbox" name="cb_equipment" value="yes" data-waiver-cb required>
+            <span><strong>EQUIPMENT:</strong> RELEASORS understand attractions and equipment may be manufactured by third parties. RELEASEES are not the manufacturer and are not liable for alleged manufacturing defects beyond what the law requires.</span>
+          </label>
+
+          <label class="waiver-legal-check">
+            <input type="checkbox" name="adult_confirm" value="yes" data-waiver-cb required>
+            <span><strong>AGE &amp; AUTHORITY:</strong> I am 18 years of age or older and authorized to sign for any minors listed on this waiver.</span>
+          </label>
+
+          <label class="waiver-legal-check">
+            <input type="checkbox" name="agree" value="yes" data-waiver-cb required>
+            <span><strong>FINAL AGREEMENT:</strong> I have read this AGREEMENT, understand it, and agree to be bound by it for myself and all individuals named herein for this visit and plan at the selected Skyline 360 Park location.</span>
+          </label>
+
+          <div class="waiver-sign-block">
+            <p class="waiver-mini-label">Draw your electronic signature*</p>
+            <p class="waiver-sign-help">Sign with your finger, stylus, or mouse. Keep your finger on the pad while signing — it won’t jump or scroll away.</p>
+            <div class="waiver-sign-pad" data-waiver-sign-pad>
+              <canvas data-waiver-sign-canvas width="640" height="220" aria-label="Signature drawing pad"></canvas>
+              <p class="waiver-sign-placeholder" data-waiver-sign-placeholder>Sign here</p>
+            </div>
+            <div class="waiver-sign-actions">
+              <button type="button" class="waiver-btn-secondary waiver-sign-clear" data-waiver-sign-clear>Clear signature</button>
+              <span class="waiver-sign-status" data-waiver-sign-status>Not signed yet</span>
+            </div>
+            <input type="hidden" name="signature_data" data-waiver-sign-data value="">
+            <label class="waiver-input-wrap">
+              <span class="waiver-mini-label">Type your full legal name to confirm*</span>
+              <input type="text" name="signature" maxlength="160" placeholder="First Last (must match your name)" autocomplete="off" required>
+            </label>
+          </div>
+
+          <div class="franchise-captcha waiver-captcha">
+            <div class="franchise-captcha-head">
+              <p class="franchise-captcha-label">Park code <span class="req" aria-hidden="true">*</span></p>
+              <button type="button" class="franchise-captcha-refresh" data-waiver-captcha-refresh>New code</button>
+            </div>
+            <div class="franchise-captcha-row">
+              <div class="franchise-captcha-board" data-waiver-captcha-board aria-hidden="true"></div>
+              <input type="text" name="captcha" data-waiver-captcha-input autocomplete="off" autocapitalize="characters" spellcheck="false" required maxlength="8" placeholder="Enter code" aria-label="Park code" inputmode="text">
+            </div>
+          </div>
+
+          <p class="waiver-field-error" data-waiver-legal-error hidden></p>
+          <div class="waiver-nav-row">
+            <button type="button" class="btn-stamp btn-stamp-party waiver-stamp-prev" data-waiver-back>
+              <span class="btn-stamp-arrow waiver-stamp-back-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M14 8l-4 4 4 4" stroke="#1a0530" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="btn-stamp-text">Previous</span>
+            </button>
+            <button type="submit" class="btn-stamp btn-stamp-visit waiver-stamp-next" data-waiver-submit>
+              <span class="btn-stamp-text">Accept and continue</span>
+              <span class="btn-stamp-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M10 8l4 4-4 4" stroke="#1a0530" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </button>
+          </div>
+          <p class="form-status" data-waiver-status role="status" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <div class="waiver-success waiver-card waiver-card-lift" data-waiver-success hidden>
+        <div class="waiver-success-burst" aria-hidden="true">✓</div>
+        <h2>Waiver signed</h2>
+        <p data-waiver-success-copy>Your confirmation copy is being sent to your email (inbox). If it isn’t there yet, wait a minute and also check spam/promotions. Opening this plan’s booking page…</p>
+        <div class="waiver-success-walkin" data-waiver-success-walkin hidden>
+          <p class="waiver-success-walkin-note">You can book any plan at this park for the next 1.5 hours without signing again.</p>
+          <button type="button" class="waiver-link-confirm-change" data-waiver-success-new-guest>
+            New guest (clear this pass)
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <div class="waiver-progress" data-waiver-progress hidden>
+      <span data-waiver-progress-text>Scroll down. 0 / 16 checkboxes complete</span>
+    </div>
+  </div>
+
+  <section class="footer-brand" aria-label="Brand">
+    <div class="mega-marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="mega-item"><span class="mega-name">Skyline <em>360</em> Park</span><span class="orb"><span></span></span></span>
+        <span class="mega-item"><span class="mega-name">Skyline <em>360</em> Park</span><span class="orb"><span></span></span></span>
+        <span class="mega-item"><span class="mega-name">Skyline <em>360</em> Park</span><span class="orb"><span></span></span></span>
+        <span class="mega-item"><span class="mega-name">Skyline <em>360</em> Park</span><span class="orb"><span></span></span></span>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="footer-links" aria-label="Helpful links">
+      <a href="index.html">Home</a>
+      <a href="contact.html">Contact</a>
+      
+    <a href="waiver.html?mode=walkin">Waiver</a>
+<a href="franchise.html">Franchise With Us</a>
+    </nav>
+    <p class="footer-copy">
+      <span class="footer-copy-brand">&copy; @skyline360</span>
+      <span class="footer-copy-sep" aria-hidden="true">·</span>
+      <span class="footer-copy-note">All Rights Reserved.</span>
+    </p>
+  </footer>
+
+  <!-- Outside .waiver-card so it is not clipped by overflow / backdrop-filter -->
+  <div
+    class="waiver-doc-modal"
+    data-waiver-doc-checklist-modal
+    hidden
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="waiver-doc-modal-title"
+  >
+    <button type="button" class="waiver-doc-modal-backdrop" data-waiver-doc-checklist-close tabindex="-1" aria-label="Close"></button>
+    <div class="waiver-doc-modal-panel" role="document">
+      <div class="waiver-doc-modal-head">
+        <h3 id="waiver-doc-modal-title" class="waiver-doc-modal-title">What to put on your page</h3>
+        <button type="button" class="waiver-doc-modal-x" data-waiver-doc-checklist-close aria-label="Close list">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="waiver-doc-modal-body">
+        <p class="waiver-doc-checklist-lead">
+          Type each item on its own line in Notes, Word, Google Docs, or any text app (not handwriting). Use the label, a colon, then your answer — see the example below. Then take one clear photo of the whole page. Sideways photos are okay. A second page is optional — if you add Extra page, it is also read and merged (handy for minors or overflow). Photos are only used to fill this form and are not stored.
+        </p>
+
+        <div class="waiver-doc-example" data-waiver-doc-example>
+          <button
+            type="button"
+            class="waiver-doc-example-toggle"
+            data-waiver-doc-example-toggle
+            aria-expanded="true"
+            aria-controls="waiver-doc-example-panel"
+          >
+            <span class="waiver-doc-example-toggle-title">See how to type it</span>
+            <span class="waiver-doc-example-toggle-hint">Tap to show or hide the sample</span>
+            <span class="waiver-doc-example-caret" aria-hidden="true">▾</span>
+          </button>
+          <div class="waiver-doc-example-panel" id="waiver-doc-example-panel" data-waiver-doc-example-panel>
+            <p class="waiver-doc-example-lead">
+              Copy this into Notes, Word, Google Docs, or any text app. Replace the sample values with your real details, then photograph the page.
+            </p>
+            <pre class="waiver-doc-example-pre" data-waiver-doc-example-text>First name: Daniel
+Last name: Williams
+Date of birth: 24-06-1996
+Phone number: +1 202-555-0147
+Street address: 123 Maple Street
+City: Dallas
+State / province: Texas
+ZIP / postal code: 75201
+Emergency contact name: Sarah Williams
+Emergency phone: +1 202-555-0199
+
+Minor 1 first name: Ana
+Minor 1 last name: Williams
+Minor 1 date of birth: 12-03-2014
+Minor 2 first name: Leo
+Minor 2 last name: Williams
+Minor 2 date of birth: 05-11-2018</pre>
+            <button type="button" class="waiver-doc-example-copy" data-waiver-doc-example-copy>
+              Copy example text
+            </button>
+            <p class="waiver-doc-example-note">
+              Skip the Minor lines if you are signing for yourself only (“Just me”). Keep the same label wording so the scan can read each line.
+            </p>
+          </div>
+        </div>
+
+        <p class="waiver-doc-checklist-section">Already saved</p>
+        <ul class="waiver-doc-checklist-list waiver-doc-checklist-list-static">
+          <li><span class="waiver-doc-checklist-tag">Done</span><span class="waiver-doc-checklist-label">Email address</span></li>
+        </ul>
+
+        <p class="waiver-doc-checklist-section">Adult / guardian — type these</p>
+        <ol class="waiver-doc-checklist-list">
+          <li><span class="waiver-doc-checklist-num">1</span><span class="waiver-doc-checklist-label">First name</span></li>
+          <li><span class="waiver-doc-checklist-num">2</span><span class="waiver-doc-checklist-label">Last name</span></li>
+          <li>
+            <span class="waiver-doc-checklist-num">3</span>
+            <span class="waiver-doc-checklist-label">Date of birth</span>
+            <span class="waiver-doc-checklist-hint">(example: 24-06-1996)</span>
+          </li>
+          <li><span class="waiver-doc-checklist-num">4</span><span class="waiver-doc-checklist-label">Phone number</span></li>
+          <li><span class="waiver-doc-checklist-num">5</span><span class="waiver-doc-checklist-label">Street address</span></li>
+          <li><span class="waiver-doc-checklist-num">6</span><span class="waiver-doc-checklist-label">City</span></li>
+          <li><span class="waiver-doc-checklist-num">7</span><span class="waiver-doc-checklist-label">State or province</span></li>
+          <li><span class="waiver-doc-checklist-num">8</span><span class="waiver-doc-checklist-label">ZIP or postal code</span></li>
+          <li><span class="waiver-doc-checklist-num">9</span><span class="waiver-doc-checklist-label">Emergency contact name</span></li>
+          <li><span class="waiver-doc-checklist-num">10</span><span class="waiver-doc-checklist-label">Emergency phone</span></li>
+        </ol>
+
+        <p class="waiver-doc-checklist-section">Children / minors (optional — up to 15)</p>
+        <p class="waiver-doc-checklist-lead">
+          Only if kids are coming with you. Number each child like this so we can fill their rows for you:
+        </p>
+        <ul class="waiver-doc-checklist-list waiver-doc-checklist-list-static">
+          <li><span class="waiver-doc-checklist-label">Minor 1 first name:</span> <span class="waiver-doc-checklist-hint">Ana</span></li>
+          <li><span class="waiver-doc-checklist-label">Minor 1 last name:</span> <span class="waiver-doc-checklist-hint">Smith</span></li>
+          <li><span class="waiver-doc-checklist-label">Minor 1 date of birth:</span> <span class="waiver-doc-checklist-hint">12-03-2014</span></li>
+          <li><span class="waiver-doc-checklist-label">Minor 2 first name:</span> <span class="waiver-doc-checklist-hint">…</span></li>
+        </ul>
+        <p class="waiver-doc-checklist-foot" style="margin-top:0.35rem">
+          You can keep going through Minor 15 the same way.
+        </p>
+
+        <p class="waiver-doc-checklist-section">On the next screen</p>
+        <ul class="waiver-doc-checklist-list waiver-doc-checklist-list-static">
+          <li>
+            <span class="waiver-doc-checklist-tag">Choice</span>
+            <span class="waiver-doc-checklist-label">Me and minor(s)</span>
+            <span class="waiver-doc-checklist-hint">— we add and fill the children from your photo</span>
+          </li>
+          <li>
+            <span class="waiver-doc-checklist-tag">Choice</span>
+            <span class="waiver-doc-checklist-label">Just me</span>
+            <span class="waiver-doc-checklist-hint">— we keep only your adult details (children on the page are ignored)</span>
+          </li>
+          <li>
+            <span class="waiver-doc-checklist-tag">Last</span>
+            <span class="waiver-doc-checklist-label">Agreements and signature</span>
+          </li>
+        </ul>
+
+        <p class="waiver-doc-checklist-foot">
+          Tip: label each line clearly, like <strong>First name:</strong> and <strong>Minor 1 first name:</strong>, so the scan can read them.
+        </p>
+      </div>
+      <div class="waiver-doc-modal-foot">
+        <button type="button" class="waiver-doc-modal-done" data-waiver-doc-checklist-close>
+          Got it — close list
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/parks-data.js?v=20260905-10" defer></script>
+  <script src="js/country-dial-codes.js?v=20260812-24" defer></script>
+  <script src="js/main.js?v=20260905-10" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@zxing/library@0.21.3/umd/index.min.js" defer></script>
+  <script src="js/aamva-id.js?v=20260905-7" defer></script>
+  <script src="js/waiver-ocr-local.js?v=20260905-7" defer></script>
+  <script src="js/waiver.js?v=20260905-15" defer></script>
+</body>
+</html>

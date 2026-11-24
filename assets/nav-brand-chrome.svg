@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 120" preserveAspectRatio="none" fill="none">
+  <defs>
+    <linearGradient id="brandNeon" x1="0" y1="0" x2="360" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ff2d9b"/>
+      <stop offset="38%" stop-color="#a020f0"/>
+      <stop offset="70%" stop-color="#6a3cff"/>
+      <stop offset="100%" stop-color="#2ec4ff"/>
+    </linearGradient>
+    <linearGradient id="brandFill" x1="0" y1="0" x2="0" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4c1a90"/>
+      <stop offset="52%" stop-color="#2b0b52"/>
+      <stop offset="100%" stop-color="#180030"/>
+    </linearGradient>
+    <radialGradient id="brandCore" cx="36%" cy="50%" r="54%">
+      <stop offset="0%" stop-color="#a020f0" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#a020f0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="brandSheen" x1="0" y1="0" x2="0" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.18"/>
+      <stop offset="45%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="brandDots" width="7" height="7" patternUnits="userSpaceOnUse">
+      <circle cx="1.4" cy="1.4" r="1.25" fill="#ffffff" fill-opacity="0.16"/>
+    </pattern>
+    <!-- Shallow teeth keep the jagged silhouette while leaving a tall flat
+         interior (y 10-110) that the logo can fill without crossing the edge. -->
+    <path
+      id="brandBadge"
+      d="M6 10
+         L14 4 L22 10 L30 4 L38 10 L46 4 L54 10 L62 4 L70 10 L78 4 L86 10 L94 4 L102 10
+         L110 4 L118 10 L126 4 L134 10 L142 4 L150 10 L158 4 L166 10 L174 4 L182 10
+         L190 4 L198 10 L206 4 L214 10 L222 4 L230 10 L238 4 L246 10 L254 4 L262 10
+         L270 4 L278 10 L286 4 L294 10 L306 6
+         L352 60 L306 114
+         L294 110 L286 116 L278 110 L270 116 L262 110 L254 116 L246 110 L238 116
+         L230 110 L222 116 L214 110 L206 116 L198 110 L190 116 L182 110 L174 116
+         L166 110 L158 116 L150 110 L142 116 L134 110 L126 116 L118 110 L110 116
+         L102 110 L94 116 L86 110 L78 116 L70 110 L62 116 L54 110 L46 116 L38 110
+         L30 116 L22 110 L14 116 L6 110
+         Z"
+    />
+    <clipPath id="brandClip">
+      <use href="#brandBadge"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#brandClip)">
+    <rect width="360" height="120" fill="url(#brandFill)"/>
+    <rect width="360" height="120" fill="url(#brandCore)"/>
+    <rect width="360" height="120" fill="url(#brandDots)"/>
+    <rect width="360" height="120" fill="url(#brandSheen)"/>
+  </g>
+  <use href="#brandBadge" fill="none" stroke="url(#brandNeon)" stroke-width="3.5" stroke-linejoin="round"/>
+</svg>

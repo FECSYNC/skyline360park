@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<!--
+  Skyline 360 Park
+  Design, front-end architecture & build: Steve Ubangha Ewa
+  https://nazarng.com/steve.html
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Attractions | Skyline 360 Park</title>
+  <meta name="description" content="Endless adventures await at Skyline 360 Park — trampoline arena, ninja challenge, foam pits, climbing walls, arcade, and more.">
+  <meta name="author" content="Steve Ubangha Ewa">
+  <link rel="author" href="https://nazarng.com/steve.html">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="css/styles.css?v=20260905-16">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;700;800&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet"></noscript>
+  <link rel="preload" as="image" href="assets/skylinepics/opt/s5-800.webp" type="image/webp" imagesrcset="assets/skylinepics/opt/s5-480.webp 480w, assets/skylinepics/opt/s5-800.webp 800w, assets/skylinepics/opt/s5-1200.webp 1200w" imagesizes="(max-width: 900px) 92vw, 560px">
+  <script>
+    // The loader is opt-in on JS so a scripting failure can never strand a
+    // visitor behind an overlay; the timeout releases it if main.js never lands.
+    (function () {
+      var root = document.documentElement;
+      root.classList.add("has-loader", "is-loading");
+      window.setTimeout(function () {
+        root.classList.remove("has-loader", "is-loading");
+      }, 1400);
+    })();
+  </script>
+  <link rel="stylesheet" href="css/styles.css?v=20260905-16">
+</head>
+<body>
+  <div class="page-loader" id="page-loader" role="status" aria-label="Loading Skyline 360 Park">
+    <div class="loader-stage" aria-hidden="true">
+      <span class="loader-ring loader-track"></span>
+      <span class="loader-ring loader-track-inner"></span>
+      <span class="loader-ring loader-sweep"></span>
+      <span class="loader-ring loader-sweep loader-sweep-alt"></span>
+      <span class="loader-spark"></span>
+      <picture class="loader-logo">
+        <img src="assets/logo-sm.png" alt="" width="220" height="66" decoding="async" fetchpriority="low">
+      </picture>
+    </div>
+    <p class="loader-caption" aria-hidden="true">360&deg; of fun</p>
+    <div class="loader-bar" aria-hidden="true"><span></span></div>
+  </div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand brand-panel" href="index.html" aria-label="Skyline 360 Park home">
+        <img class="brand-chrome" src="assets/nav-brand-chrome.svg" alt="" width="340" height="120" aria-hidden="true" decoding="async" fetchpriority="low">
+        <img class="brand-logo" src="assets/logo-nav.png" alt="Skyline 360 Park" width="412" height="176" decoding="async" fetchpriority="high">
+      </a>
+
+      <div class="header-main">
+        <img class="header-main-chrome" src="assets/nav-bar-chrome.svg" alt="" width="980" height="100" aria-hidden="true" decoding="async" fetchpriority="low">
+        <div class="header-main-body">
+          <nav class="nav-desktop" aria-label="Primary">
+            <a class="nav-link is-active" href="attractions.html">
+              <span class="nav-ico nav-ico-attractions" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none"><path d="M4 24 L10 12 L15 20 L19 10 L28 24 Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M19 10 V6 M19 6 L16.5 8.5 M19 6 L21.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="nav-label">Attractions</span>
+            </a>
+            <div class="nav-item has-dropdown">
+              <button type="button" class="nav-dropdown-toggle nav-link" aria-expanded="false" aria-haspopup="true">
+                <span class="nav-ico nav-ico-location" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" fill="none"><path d="M16 28s-9-9.2-9-15a9 9 0 1 1 18 0c0 5.8-9 15-9 15z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="16" cy="13" r="3.2" stroke="currentColor" stroke-width="2.2"/></svg>
+                </span>
+                <span class="nav-label">Location <span class="nav-caret" aria-hidden="true"></span></span>
+              </button>
+              <div class="nav-dropdown" role="menu">
+                <div class="nav-dropdown-inner">
+                  <a href="location.html?id=katy" role="menuitem">Katy, Texas</a>
+                  <a href="location.html?id=fort-worth" role="menuitem">Fort Worth, Texas</a>
+                  <a href="location.html?id=pennsylvania" role="menuitem">Pennsylvania</a>
+                </div>
+              </div>
+            </div>
+            <a class="nav-link" href="contact.html">
+              <span class="nav-ico nav-ico-contact" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none"><path d="M10 8c0-1.5 1.2-3 3-3h1.2c.7 0 1.3.4 1.5 1.1l1 3.2c.2.7 0 1.4-.6 1.8l-1.4 1c1.4 2.8 3.6 5 6.4 6.4l1-1.4c.4-.6 1.1-.8 1.8-.6l3.2 1c.7.2 1.1.8 1.1 1.5V21c0 1.8-1.5 3-3 3C14.6 24 8 17.4 8 10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M22 7c1.8 1 3.2 2.4 4 4M23.5 4.5c2.6 1.4 4.6 3.5 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </span>
+              <span class="nav-label nav-label-contact">Contact</span>
+            </a>
+          
+            <a class="nav-link" href="waiver.html?mode=walkin">
+              <span class="nav-ico nav-ico-waiver" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none"><path d="M8 6h12l4 4v16H8V6z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M20 6v4h4M12 14h8M12 18h8M12 22h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </span>
+              <span class="nav-label">Waiver</span>
+            </a></nav>
+
+          <div class="header-ctas">
+            <a class="btn-stamp btn-stamp-party" href="book-party.html">
+              <span class="btn-stamp-ico" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none"><path d="M8 26 L14 12 L20 26 Z" fill="currentColor"/><path d="M14 12 L16 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="20" cy="8" r="1.4" fill="currentColor"/><circle cx="24" cy="12" r="1.2" fill="currentColor"/><circle cx="22" cy="16" r="1.1" fill="currentColor"/><path d="M18 10l4-2M19 14l5 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </span>
+              <span class="btn-stamp-text">Book a Party</span>
+              <span class="btn-stamp-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M10 8l4 4-4 4" stroke="#1a0530" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
+            <a class="btn-stamp btn-stamp-visit" href="franchise.html">
+              <span class="btn-stamp-ico" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none"><path d="M4 26h24M6 26V12l10-7 10 7v14" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M13 26v-7h6v7" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M12 14h2M18 14h2M12 18h2M18 18h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </span>
+              <span class="btn-stamp-text">Franchise With Us</span>
+              <span class="btn-stamp-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M10 8l4 4-4 4" stroke="#1a0530" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+    <a href="attractions.html">Attractions</a>
+    <div class="mobile-dropdown">
+      <button type="button" class="mobile-dropdown-toggle" aria-expanded="false">
+        Location
+        <span class="nav-caret" aria-hidden="true"></span>
+      </button>
+      <div class="mobile-dropdown-panel">
+        <a href="location.html?id=katy">Katy, Texas</a>
+        <a href="location.html?id=fort-worth">Fort Worth, Texas</a>
+        <a href="location.html?id=pennsylvania">Pennsylvania</a>
+      </div>
+    </div>
+    <a href="contact.html">Contact</a>
+    
+    <a href="waiver.html?mode=walkin">Waiver</a>
+<div class="mobile-nav-ctas">
+      <a class="btn-stamp btn-stamp-party" href="book-party.html">
+        <span class="btn-stamp-text">Book a Party</span>
+      </a>
+      <a class="btn-stamp btn-stamp-visit" href="franchise.html">
+        <span class="btn-stamp-text">Franchise With Us</span>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Attractions hero -->
+    <section class="attr-hero topo" aria-label="Attractions welcome">
+      <div class="wrap attr-hero-flex">
+        <div class="attr-hero-copy reveal reveal-left">
+          <p class="eyebrow">Endless adventures await</p>
+          <h1>Our Attractions</h1>
+          <p class="attr-hero-lead">
+            Every corner of Skyline 360 Park is packed with exciting experiences that challenge, excite, and inspire endless fun for every age.
+          </p>
+          <div class="attr-hero-actions">
+            <a class="btn btn-lg" href="#attractionList">View All Attractions</a>
+            <a class="btn btn-lg btn-ghost-light" href="index.html?guide=1" data-location-guide data-plan="party">Book a Birthday Party</a>
+          </div>
+          <div class="attr-hero-stats">
+            <div><strong>12+</strong><span>Attractions</span></div>
+            <div><strong>All</strong><span>Ages Welcome</span></div>
+            <div><strong>360°</strong><span>Nonstop Fun</span></div>
+          </div>
+        </div>
+        <div class="attr-hero-visual reveal reveal-right">
+          <figure class="attr-hero-main media-zoom" data-tilt>
+            <picture>
+              <source type="image/webp" srcset="assets/skylinepics/opt/s5-480.webp 480w, assets/skylinepics/opt/s5-800.webp 800w, assets/skylinepics/opt/s5-1200.webp 1200w" sizes="(max-width: 900px) 92vw, 560px">
+              <img src="assets/skylinepics/opt/s5-800.jpg" srcset="assets/skylinepics/opt/s5-480.jpg 480w, assets/skylinepics/opt/s5-800.jpg 800w, assets/skylinepics/opt/s5-1200.jpg 1200w" sizes="(max-width: 900px) 92vw, 560px" alt="Riders racing down the multi-lane slides at Skyline 360 Park" width="800" height="640" loading="eager" decoding="async" fetchpriority="high">
+            </picture>
+          </figure>
+          <figure class="attr-hero-float attr-hero-float-a media-zoom">
+            <picture>
+              <source type="image/webp" srcset="assets/skylinepics/opt/s9-480.webp 480w, assets/skylinepics/opt/s9-800.webp 800w, assets/skylinepics/opt/s9-1200.webp 1200w" sizes="(max-width: 720px) 42vw, 220px">
+              <img src="assets/skylinepics/opt/s9-800.jpg" srcset="assets/skylinepics/opt/s9-480.jpg 480w, assets/skylinepics/opt/s9-800.jpg 800w, assets/skylinepics/opt/s9-1200.jpg 1200w" sizes="(max-width: 720px) 42vw, 220px" alt="Jumpers dunking on the trampoline basketball lanes" width="800" height="533" loading="lazy" decoding="async">
+            </picture>
+          </figure>
+          <figure class="attr-hero-float attr-hero-float-b media-zoom">
+            <picture>
+              <source type="image/webp" srcset="assets/skylinepics/opt/s15-480.webp 480w, assets/skylinepics/opt/s15-800.webp 800w, assets/skylinepics/opt/s15-1200.webp 1200w" sizes="(max-width: 720px) 42vw, 220px">
+              <img src="assets/skylinepics/opt/s15-800.jpg" srcset="assets/skylinepics/opt/s15-480.jpg 480w, assets/skylinepics/opt/s15-800.jpg 800w, assets/skylinepics/opt/s15-1200.jpg 1200w" sizes="(max-width: 720px) 42vw, 220px" alt="Full-size indoor basketball court" width="800" height="642" loading="lazy" decoding="async">
+            </picture>
+          </figure>
+          <img class="attr-hero-mascot" src="assets/mascot.svg" alt="" width="160" height="190" aria-hidden="true">
+        </div>
+      </div>
+    </section>
+
+    <!-- Intro band -->
+    <section class="attr-intro-band">
+      <div class="wrap attr-intro-flex reveal">
+        <div class="attr-intro-copy">
+          <h2>High-Energy Attractions for Everyone</h2>
+          <p>
+            Discover a wide variety of indoor attractions that challenge, excite, and inspire endless fun —
+            whether you&rsquo;re flipping, climbing, racing, or cheering from the sidelines at Skyline 360 Park.
+          </p>
+        </div>
+        <div class="attr-intro-pills" aria-hidden="true">
+          <span>Jump</span>
+          <span>Climb</span>
+          <span>Race</span>
+          <span>Play</span>
+          <span>Party</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filter + grid -->
+    <section class="section section-blue topo attr-showcase" id="attractionList">
+      <div class="wrap">
+        <div class="attr-showcase-head reveal">
+          <h2 class="section-title">Adventures Await</h2>
+          <p class="attr-showcase-lead">Filter by vibe — or explore the full Skyline 360 lineup.</p>
+        </div>
+
+        <div class="attr-filters reveal" role="tablist" aria-label="Filter attractions">
+          <button type="button" class="attr-filter is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button type="button" class="attr-filter" data-filter="jump" role="tab" aria-selected="false">Jump</button>
+          <button type="button" class="attr-filter" data-filter="climb" role="tab" aria-selected="false">Climb</button>
+          <button type="button" class="attr-filter" data-filter="compete" role="tab" aria-selected="false">Compete</button>
+          <button type="button" class="attr-filter" data-filter="play" role="tab" aria-selected="false">Play</button>
+        </div>
+
+        <div class="attr-bento" id="attrGrid">
+          <article class="attr-tile attr-tile-lg reveal reveal-up" data-cat="jump" style="--d:0">
+            <div class="attr-tile-media">
+              <picture>
+                <source type="image/webp" srcset="assets/skylinepics/opt/s11-480.webp 480w, assets/skylinepics/opt/s11-800.webp 800w, assets/skylinepics/opt/s11-1200.webp 1200w" sizes="(max-width: 900px) 92vw, 55vw">
+                <img src="assets/skylinepics/opt/s11-800.jpg" srcset="assets/skylinepics/opt/s11-480.jpg 480w, assets/skylinepics/opt/s11-800.jpg 800w, assets/skylinepics/opt/s11-1200.jpg 1200w" sizes="(max-width: 900px) 92vw, 55vw" alt="Wall-to-wall freestyle jump trampoline courts" width="800" height="533" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <div class="attr-tile-body">
+              <span class="attr-tag">Jump</span>
+              <h3>Trampoline Arena</h3>
+              <p>Bounce, flip, and fly on expansive wall-to-wall trampoline courts.</p>
+            </div>
+          </article>
+
+          <article class="attr-tile reveal reveal-up" data-cat="climb" style="--d:1">
+            <div class="attr-tile-media">
+              <picture>
+                <source type="image/webp" srcset="assets/skylinepics/opt/s2-480.webp 480w, assets/skylinepics/opt/s2-800.webp 800w, assets/skylinepics/opt/s2-1200.webp 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px">
+                <img src="assets/skylinepics/opt/s2-800.jpg" srcset="assets/skylinepics/opt/s2-480.jpg 480w, assets/skylinepics/opt/s2-800.jpg 800w, assets/skylinepics/opt/s2-1200.jpg 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px" alt="Climbers on the auto-belay climbing walls" width="800" height="640" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <div class="attr-tile-body">
+              <span class="attr-tag">Climb</span>
+              <h3>Climbing Walls</h3>
+              <p>Reach new heights on colorful, challenging climbing walls.</p>
+            </div>
+          </article>
+
+          <article class="attr-tile reveal reveal-up" data-cat="compete" style="--d:2">
+            <div class="attr-tile-media">
+              <picture>
+                <source type="image/webp" srcset="assets/skylinepics/opt/s1-480.webp 480w, assets/skylinepics/opt/s1-800.webp 800w, assets/skylinepics/opt/s1-1200.webp 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px">
+                <img src="assets/skylinepics/opt/s1-800.jpg" srcset="assets/skylinepics/opt/s1-480.jpg 480w, assets/skylinepics/opt/s1-800.jpg 800w, assets/skylinepics/opt/s1-1200.jpg 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px" alt="Kids swinging through the Ninja Warrior tire obstacles" width="800" height="533" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <div class="attr-tile-body">
+              <span class="attr-tag">Compete</span>
+              <h3>Ninja Warrior Challenge</h3>
+              <p>Race through obstacles built for speed, strength, and skill.</p>
+            </div>
+          </article>
+
+          <article class="attr-tile reveal reveal-up" data-cat="jump" style="--d:0">
+            <div class="attr-tile-media">
+              <picture>
+                <source type="image/webp" srcset="assets/skylinepics/opt/s4-480.webp 480w, assets/skylinepics/opt/s4-800.webp 800w, assets/skylinepics/opt/s4-1200.webp 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px">
+                <img src="assets/skylinepics/opt/s4-800.jpg" srcset="assets/skylinepics/opt/s4-480.jpg 480w, assets/skylinepics/opt/s4-800.jpg 800w, assets/skylinepics/opt/s4-1200.jpg 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px" alt="Zip line rider landing above the foam cube pit" width="800" height="640" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <div class="attr-tile-body">
+              <span class="attr-tag">Jump</span>
+              <h3>Foam Pit Adventures</h3>
+              <p>Leap and land soft in our giant foam cube landing zone.</p>
+            </div>
+          </article>
+
+          <article class="attr-tile attr-tile-wide reveal reveal-up" data-cat="climb" style="--d:1">
+            <div class="attr-tile-media">
+              <picture>
+                <source type="image/webp" srcset="assets/skylinepics/opt/s1-480.webp 480w, assets/skylinepics/opt/s1-800.webp 800w, assets/skylinepics/opt/s1-1200.webp 1200w" sizes="(max-width: 900px) 92vw, 55vw">
+                <img src="assets/skylinepics/opt/s1-800.jpg" srcset="assets/skylinepics/opt/s1-480.jpg 480w, assets/skylinepics/opt/s1-800.jpg 800w, assets/skylinepics/opt/s1-1200.jpg 1200w" sizes="(max-width: 900px) 92vw, 55vw" alt="Obstacle course with hanging rings, nets, and tire swings" width="800" height="533" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <div class="attr-tile-body">
+              <span class="attr-tag">Climb</span>
+              <h3>Obstacle Courses</h3>
+              <p>Test your balance, speed, and bravery on high-energy obstacle runs.</p>
+            </div>
+          </article>
+
+          <article class="attr-tile reveal reveal-up" data-cat="compete" style="--d:0">
+            <div class="attr-tile-media">
+              <picture>
+                <source type="image/webp" srcset="assets/skylinepics/opt/s12-480.webp 480w, assets/skylinepics/opt/s12-800.webp 800w, assets/skylinepics/opt/s12-1200.webp 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px">
+                <img src="assets/skylinepics/opt/s12-800.jpg" srcset="assets/skylinepics/opt/s12-480.jpg 480w, assets/skylinepics/opt/s12-800.jpg 800w, assets/skylinepics/opt/s12-1200.jpg 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px" alt="Two teams playing on the trampoline dodgeball courts" width="800" height="533" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <div class="attr-tile-body">
+              <span class="attr-tag">Compete</span>
+              <h3>Dodgeball Arena</h3>
+              <p>Fast-paced trampoline dodgeball for every skill level.</p>
+            </div>
+          </article>
+
+          <article class="attr-tile reveal reveal-up" data-cat="play" style="--d:1">
+            <div class="attr-tile-media">
+              <picture>
+                <source type="image/webp" srcset="assets/skylinepics/opt/s14-480.webp 480w, assets/skylinepics/opt/s14-800.webp 800w, assets/skylinepics/opt/s14-1200.webp 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px">
+                <img src="assets/skylinepics/opt/s14-800.jpg" srcset="assets/skylinepics/opt/s14-480.jpg 480w, assets/skylinepics/opt/s14-800.jpg 800w, assets/skylinepics/opt/s14-1200.jpg 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px" alt="Multi-purpose Air Court set up for basketball and volleyball" width="800" height="640" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <div class="attr-tile-body">
+              <span class="attr-tag">Play</span>
+              <h3>Interactive Games</h3>
+              <p>Hands-on games that keep kids, teens, and adults laughing.</p>
+            </div>
+          </article>
+
+          <article class="attr-tile reveal reveal-up" data-cat="compete" style="--d:2">
+            <div class="attr-tile-media">
+              <picture>
+                <source type="image/webp" srcset="assets/skylinepics/opt/s10-480.webp 480w, assets/skylinepics/opt/s10-800.webp 800w, assets/skylinepics/opt/s10-1200.webp 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px">
+                <img src="assets/skylinepics/opt/s10-800.jpg" srcset="assets/skylinepics/opt/s10-480.jpg 480w, assets/skylinepics/opt/s10-800.jpg 800w, assets/skylinepics/opt/s10-1200.jpg 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px" alt="Jumpers slam dunking on the SkySlam dunk lanes" width="800" height="533" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <div class="attr-tile-body">
+              <span class="attr-tag">Compete</span>
+              <h3>Basketball Dunk Zone</h3>
+              <p>Soar and slam dunk on trampoline basketball courts.</p>
+            </div>
+          </article>
+
+          <article class="attr-tile reveal reveal-up" data-cat="compete" style="--d:0">
+            <div class="attr-tile-media">
+              <picture>
+                <source type="image/webp" srcset="assets/skylinepics/opt/s4-480.webp 480w, assets/skylinepics/opt/s4-800.webp 800w, assets/skylinepics/opt/s4-1200.webp 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px">
+                <img src="assets/skylinepics/opt/s4-800.jpg" srcset="assets/skylinepics/opt/s4-480.jpg 480w, assets/skylinepics/opt/s4-800.jpg 800w, assets/skylinepics/opt/s4-1200.jpg 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px" alt="Balance beams and platforms above the foam pit" width="800" height="640" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <div class="attr-tile-body">
+              <span class="attr-tag">Compete</span>
+              <h3>Battle Beam Arena</h3>
+              <p>Duel friends on the beam above a soft foam pit.</p>
+            </div>
+          </article>
+
+          <article class="attr-tile reveal reveal-up" data-cat="play" style="--d:1">
+            <div class="attr-tile-media">
+              <picture>
+                <source type="image/webp" srcset="assets/skylinepics/opt/s3-480.webp 480w, assets/skylinepics/opt/s3-800.webp 800w, assets/skylinepics/opt/s3-1200.webp 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px">
+                <img src="assets/skylinepics/opt/s3-800.jpg" srcset="assets/skylinepics/opt/s3-480.jpg 480w, assets/skylinepics/opt/s3-800.jpg 800w, assets/skylinepics/opt/s3-1200.jpg 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px" alt="Neon-lit bumper kart track and games area" width="800" height="533" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <div class="attr-tile-body">
+              <span class="attr-tag">Play</span>
+              <h3>Arcade Gaming Zone</h3>
+              <p>Classic and modern arcade games for every age.</p>
+            </div>
+          </article>
+
+          <article class="attr-tile reveal reveal-up" data-cat="play" style="--d:2">
+            <div class="attr-tile-media">
+              <picture>
+                <source type="image/webp" srcset="assets/skylinepics/opt/s7-480.webp 480w, assets/skylinepics/opt/s7-800.webp 800w, assets/skylinepics/opt/s7-1200.webp 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px">
+                <img src="assets/skylinepics/opt/s7-800.jpg" srcset="assets/skylinepics/opt/s7-480.jpg 480w, assets/skylinepics/opt/s7-800.jpg 800w, assets/skylinepics/opt/s7-1200.jpg 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px" alt="Toddler soft play area with slides, ball pit, and climbing frames" width="800" height="600" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <div class="attr-tile-body">
+              <span class="attr-tag">Play</span>
+              <h3>Kids Adventure Playground</h3>
+              <p>Safe slides and play zones for little explorers.</p>
+            </div>
+          </article>
+
+          <article class="attr-tile reveal reveal-up" data-cat="play" style="--d:3">
+            <div class="attr-tile-media">
+              <picture>
+                <source type="image/webp" srcset="assets/skylinepics/opt/s13-480.webp 480w, assets/skylinepics/opt/s13-800.webp 800w, assets/skylinepics/opt/s13-1200.webp 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px">
+                <img src="assets/skylinepics/opt/s13-800.jpg" srcset="assets/skylinepics/opt/s13-480.jpg 480w, assets/skylinepics/opt/s13-800.jpg 800w, assets/skylinepics/opt/s13-1200.jpg 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px" alt="ValoJump interactive trampoline experience with light-up targets" width="800" height="533" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <div class="attr-tile-body">
+              <span class="attr-tag">Play</span>
+              <h3>Virtual Reality Experiences</h3>
+              <p>Step into immersive VR adventures between high-energy attraction runs.</p>
+            </div>
+          </article>
+        </div>
+
+        <p class="attr-empty" id="attrEmpty" hidden>No attractions in this category — try another filter.</p>
+      </div>
+    </section>
+
+    <!-- Experience strip -->
+    <section class="attr-experience">
+      <div class="wrap attr-experience-flex">
+        <article class="attr-exp-card reveal reveal-up" style="--d:0">
+          <h3>Safety First</h3>
+          <p>Well-maintained attractions, trained team members, and clear guidelines keep the fun safe.</p>
+        </article>
+        <article class="attr-exp-card reveal reveal-up" style="--d:1">
+          <h3>Go All In</h3>
+          <p>Rotate attractions, challenge friends, and chase high-energy fun across the park.</p>
+        </article>
+        <article class="attr-exp-card reveal reveal-up" style="--d:2">
+          <h3>Recharge</h3>
+          <p>Grab pizza, snacks, and drinks at the café — then jump back into the action.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="attr-cta-band topo">
+      <div class="wrap attr-cta-flex reveal">
+        <div>
+          <h2>Ready for Adventure?</h2>
+          <p>Whether it&rsquo;s a family outing or birthday celebration, Skyline 360 Park is ready to make it unforgettable.</p>
+        </div>
+        <div class="attr-cta-actions">
+          <a class="btn btn-lg" href="index.html?guide=1" data-location-guide>Book Now</a>
+          <a class="btn btn-lg btn-ghost-light" href="contact.html">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visit -->
+    <section class="section section-blue topo hours curve-bottom" id="hours">
+      <div class="wrap visit-mini reveal">
+        <h2>Plan Your Visit</h2>
+        <p class="address">923 S. Mason Road, Suite A<br>Katy, TX 77450</p>
+        <div class="visit-mini-actions">
+          <a class="btn" href="index.html#hours">Hours &amp; Map</a>
+          <a class="btn btn-ghost-light" href="contact.html">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer-brand" aria-label="Brand">
+      <div class="mega-marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span class="mega-item"><span class="mega-name">Skyline <em>360</em> Park</span><span class="orb"><span></span></span></span>
+          <span class="mega-item"><span class="mega-name">Skyline <em>360</em> Park</span><span class="orb"><span></span></span></span>
+          <span class="mega-item"><span class="mega-name">Skyline <em>360</em> Park</span><span class="orb"><span></span></span></span>
+          <span class="mega-item"><span class="mega-name">Skyline <em>360</em> Park</span><span class="orb"><span></span></span></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <footer class="site-footer">
+    <nav class="footer-links" aria-label="Helpful links">
+      <a href="waiver.html?mode=walkin" data-waiver-entry>Sign a waiver</a>
+    </nav>
+    <p class="footer-copy">
+      <span class="footer-copy-brand">&copy; @skyline360</span>
+      <span class="footer-copy-sep" aria-hidden="true">·</span>
+      <span class="footer-copy-note">All Rights Reserved.</span>
+    </p>
+  </footer>
+
+  <script src="js/parks-data.js?v=20260905-10" defer></script>
+  <script src="js/main.js?v=20260905-10" defer></script>
+  <script src="js/location-guide.js?v=20260905-16" defer></script>
+  <script>
+    (() => {
+      const filters = document.querySelectorAll(".attr-filter");
+      const tiles = document.querySelectorAll(".attr-tile");
+      const empty = document.getElementById("attrEmpty");
+
+      filters.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const filter = btn.dataset.filter;
+          filters.forEach((b) => {
+            b.classList.toggle("is-active", b === btn);
+            b.setAttribute("aria-selected", String(b === btn));
+          });
+
+          let visible = 0;
+          tiles.forEach((tile) => {
+            const show = filter === "all" || tile.dataset.cat === filter;
+            tile.hidden = !show;
+            tile.classList.toggle("is-filtered-out", !show);
+            if (show) {
+              visible += 1;
+              tile.classList.add("is-visible");
+            }
+          });
+          if (empty) empty.hidden = visible > 0;
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

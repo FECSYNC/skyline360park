@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<!--
+  Skyline 360 Park
+  Design, front-end architecture & build: Steve Ubangha Ewa
+  https://nazarng.com/steve.html
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book a Birthday Party | Skyline 360 Park</title>
+  <meta name="description" content="Celebrate like never before at Skyline 360 Park. Birthday packages with private spaces, attractions, hosts, food, and hassle-free planning.">
+  <meta name="author" content="Steve Ubangha Ewa">
+  <link rel="author" href="https://nazarng.com/steve.html">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="css/styles.css?v=20260905-16">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;700;800&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet"></noscript>
+  <link rel="preload" as="image" href="assets/skylinepics/opt/s6-800.webp" type="image/webp" imagesrcset="assets/skylinepics/opt/s6-480.webp 480w, assets/skylinepics/opt/s6-800.webp 800w, assets/skylinepics/opt/s6-1200.webp 1200w" imagesizes="(max-width: 900px) 92vw, 560px">
+  <script>
+    // The loader is opt-in on JS so a scripting failure can never strand a
+    // visitor behind an overlay; the timeout releases it if main.js never lands.
+    (function () {
+      var root = document.documentElement;
+      root.classList.add("has-loader", "is-loading");
+      window.setTimeout(function () {
+        root.classList.remove("has-loader", "is-loading");
+      }, 1400);
+    })();
+  </script>
+  <link rel="stylesheet" href="css/styles.css?v=20260905-16">
+</head>
+<body>
+  <div class="page-loader" id="page-loader" role="status" aria-label="Loading Skyline 360 Park">
+    <div class="loader-stage" aria-hidden="true">
+      <span class="loader-ring loader-track"></span>
+      <span class="loader-ring loader-track-inner"></span>
+      <span class="loader-ring loader-sweep"></span>
+      <span class="loader-ring loader-sweep loader-sweep-alt"></span>
+      <span class="loader-spark"></span>
+      <picture class="loader-logo">
+        <img src="assets/logo-sm.png" alt="" width="220" height="66" decoding="async" fetchpriority="low">
+      </picture>
+    </div>
+    <p class="loader-caption" aria-hidden="true">360&deg; of fun</p>
+    <div class="loader-bar" aria-hidden="true"><span></span></div>
+  </div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand brand-panel" href="index.html" aria-label="Skyline 360 Park home">
+        <img class="brand-chrome" src="assets/nav-brand-chrome.svg" alt="" width="340" height="120" aria-hidden="true" decoding="async" fetchpriority="low">
+        <img class="brand-logo" src="assets/logo-nav.png" alt="Skyline 360 Park" width="412" height="176" decoding="async" fetchpriority="high">
+      </a>
+
+      <div class="header-main">
+        <img class="header-main-chrome" src="assets/nav-bar-chrome.svg" alt="" width="980" height="100" aria-hidden="true" decoding="async" fetchpriority="low">
+        <div class="header-main-body">
+          <nav class="nav-desktop" aria-label="Primary">
+            <a class="nav-link" href="attractions.html">
+              <span class="nav-ico nav-ico-attractions" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none"><path d="M4 24 L10 12 L15 20 L19 10 L28 24 Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M19 10 V6 M19 6 L16.5 8.5 M19 6 L21.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="nav-label">Attractions</span>
+            </a>
+            <div class="nav-item has-dropdown">
+              <button type="button" class="nav-dropdown-toggle nav-link" aria-expanded="false" aria-haspopup="true">
+                <span class="nav-ico nav-ico-location" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" fill="none"><path d="M16 28s-9-9.2-9-15a9 9 0 1 1 18 0c0 5.8-9 15-9 15z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="16" cy="13" r="3.2" stroke="currentColor" stroke-width="2.2"/></svg>
+                </span>
+                <span class="nav-label">Location <span class="nav-caret" aria-hidden="true"></span></span>
+              </button>
+              <div class="nav-dropdown" role="menu">
+                <div class="nav-dropdown-inner">
+                  <a href="location.html?id=katy" role="menuitem">Katy, Texas</a>
+                  <a href="location.html?id=fort-worth" role="menuitem">Fort Worth, Texas</a>
+                  <a href="location.html?id=pennsylvania" role="menuitem">Pennsylvania</a>
+                </div>
+              </div>
+            </div>
+            <a class="nav-link" href="contact.html">
+              <span class="nav-ico nav-ico-contact" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none"><path d="M10 8c0-1.5 1.2-3 3-3h1.2c.7 0 1.3.4 1.5 1.1l1 3.2c.2.7 0 1.4-.6 1.8l-1.4 1c1.4 2.8 3.6 5 6.4 6.4l1-1.4c.4-.6 1.1-.8 1.8-.6l3.2 1c.7.2 1.1.8 1.1 1.5V21c0 1.8-1.5 3-3 3C14.6 24 8 17.4 8 10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M22 7c1.8 1 3.2 2.4 4 4M23.5 4.5c2.6 1.4 4.6 3.5 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </span>
+              <span class="nav-label nav-label-contact">Contact</span>
+            </a>
+          
+            <a class="nav-link" href="waiver.html?mode=walkin">
+              <span class="nav-ico nav-ico-waiver" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none"><path d="M8 6h12l4 4v16H8V6z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M20 6v4h4M12 14h8M12 18h8M12 22h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </span>
+              <span class="nav-label">Waiver</span>
+            </a></nav>
+
+          <div class="header-ctas">
+            <a class="btn-stamp btn-stamp-party" href="book-party.html">
+              <span class="btn-stamp-ico" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none"><path d="M8 26 L14 12 L20 26 Z" fill="currentColor"/><path d="M14 12 L16 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="20" cy="8" r="1.4" fill="currentColor"/><circle cx="24" cy="12" r="1.2" fill="currentColor"/><circle cx="22" cy="16" r="1.1" fill="currentColor"/><path d="M18 10l4-2M19 14l5 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </span>
+              <span class="btn-stamp-text">Book a Party</span>
+              <span class="btn-stamp-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M10 8l4 4-4 4" stroke="#1a0530" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
+            <a class="btn-stamp btn-stamp-visit" href="franchise.html">
+              <span class="btn-stamp-ico" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none"><path d="M4 26h24M6 26V12l10-7 10 7v14" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M13 26v-7h6v7" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M12 14h2M18 14h2M12 18h2M18 18h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </span>
+              <span class="btn-stamp-text">Franchise With Us</span>
+              <span class="btn-stamp-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M10 8l4 4-4 4" stroke="#1a0530" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+    <a href="attractions.html">Attractions</a>
+    <div class="mobile-dropdown">
+      <button type="button" class="mobile-dropdown-toggle" aria-expanded="false">
+        Location
+        <span class="nav-caret" aria-hidden="true"></span>
+      </button>
+      <div class="mobile-dropdown-panel">
+        <a href="location.html?id=katy">Katy, Texas</a>
+        <a href="location.html?id=fort-worth">Fort Worth, Texas</a>
+        <a href="location.html?id=pennsylvania">Pennsylvania</a>
+      </div>
+    </div>
+    <a href="contact.html">Contact</a>
+    
+    <a href="waiver.html?mode=walkin">Waiver</a>
+<div class="mobile-nav-ctas">
+      <a class="btn-stamp btn-stamp-party" href="book-party.html">
+        <span class="btn-stamp-text">Book a Party</span>
+      </a>
+      <a class="btn-stamp btn-stamp-visit" href="franchise.html">
+        <span class="btn-stamp-text">Franchise With Us</span>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Party hero -->
+    <section class="party-page-hero topo" aria-label="Book a party">
+      <div class="wrap party-page-hero-flex">
+        <div class="party-page-hero-copy reveal reveal-left">
+          <p class="eyebrow">Birthdays · Groups · Corporate</p>
+          <h1>Celebrate Like Never Before</h1>
+          <p class="party-page-lead">
+            Every birthday deserves an unforgettable celebration. Private party spaces, exciting attractions,
+            dedicated hosts, delicious food, and hassle-free planning — all at Skyline 360 Park.
+          </p>
+          <div class="party-page-hero-actions">
+            <a class="btn btn-lg" href="index.html?guide=1" data-location-guide data-plan="party">Book a Birthday Party</a>
+            <a class="btn btn-lg btn-ghost-light" href="contact.html">Plan Your Group Visit</a>
+          </div>
+          <div class="party-page-hero-stats">
+            <div><strong>Private</strong><span>Party Spaces</span></div>
+            <div><strong>Host</strong><span>Included</span></div>
+            <div><strong>Food</strong><span>Options</span></div>
+          </div>
+        </div>
+        <div class="party-page-hero-visual reveal reveal-right">
+          <figure class="party-page-hero-main media-zoom" data-tilt>
+            <picture>
+              <source type="image/webp" srcset="assets/skylinepics/opt/s6-480.webp 480w, assets/skylinepics/opt/s6-800.webp 800w, assets/skylinepics/opt/s6-1200.webp 1200w" sizes="(max-width: 900px) 92vw, 560px">
+              <img src="assets/skylinepics/opt/s6-800.jpg" srcset="assets/skylinepics/opt/s6-480.jpg 480w, assets/skylinepics/opt/s6-800.jpg 800w, assets/skylinepics/opt/s6-1200.jpg 1200w" sizes="(max-width: 900px) 92vw, 560px" alt="Private birthday party room decorated with balloons at Skyline 360 Park" width="800" height="533" loading="eager" decoding="async" fetchpriority="high">
+            </picture>
+          </figure>
+          <img class="party-page-cake" src="assets/cake.svg" alt="" width="160" height="160" aria-hidden="true">
+          <figure class="party-page-float media-zoom">
+            <picture>
+              <source type="image/webp" srcset="assets/skylinepics/opt/s11-480.webp 480w, assets/skylinepics/opt/s11-800.webp 800w, assets/skylinepics/opt/s11-1200.webp 1200w" sizes="(max-width: 720px) 42vw, 220px">
+              <img src="assets/skylinepics/opt/s11-800.jpg" srcset="assets/skylinepics/opt/s11-480.jpg 480w, assets/skylinepics/opt/s11-800.jpg 800w, assets/skylinepics/opt/s11-1200.jpg 1200w" sizes="(max-width: 720px) 42vw, 220px" alt="Party guests jumping on the open trampoline courts" width="800" height="533" loading="lazy" decoding="async">
+            </picture>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why party here -->
+    <section class="party-why">
+      <div class="wrap">
+        <div class="party-why-head reveal">
+          <h2>Why Party at Skyline?</h2>
+          <p>Modern attractions, friendly staff, flexible packages, and a team that handles the details.</p>
+        </div>
+        <div class="party-why-flex">
+          <article class="party-why-card reveal reveal-up" style="--d:0">
+            <div class="party-why-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M24 8l3 9h9l-7 6 3 9-8-5-8 5 3-9-7-6h9l3-9z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Birthday Celebrations</h3>
+            <p>Customizable packages with private spaces, attractions, hosts, food, and decorations.</p>
+          </article>
+          <article class="party-why-card reveal reveal-up" style="--d:1">
+            <div class="party-why-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M12 34c4-10 8-14 12-16 4 2 8 6 12 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="24" cy="16" r="5" stroke="currentColor" stroke-width="2.5"/><path d="M10 38h28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Group Experiences</h3>
+            <p>Perfect for schools, churches, youth organizations, sports teams, and community groups.</p>
+          </article>
+          <article class="party-why-card reveal reveal-up" style="--d:2">
+            <div class="party-why-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><rect x="10" y="14" width="28" height="22" rx="4" stroke="currentColor" stroke-width="2.5"/><path d="M18 14v-2a6 6 0 0 1 12 0v2M16 24h16M16 30h10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Corporate Events</h3>
+            <p>Team building, staff appreciation, and company celebrations with collaboration and fun.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section section-blue topo party-flow">
+      <div class="wrap">
+        <div class="party-flow-head reveal">
+          <h2 class="section-title">How It Works</h2>
+          <p class="party-flow-lead">From booking to birthday cheers — we make planning simple.</p>
+        </div>
+        <div class="party-flow-flex">
+          <article class="party-flow-step reveal reveal-up" style="--d:0">
+            <div class="party-flow-media">
+              <picture>
+                <source type="image/webp" srcset="assets/skylinepics/opt/s5-480.webp 480w, assets/skylinepics/opt/s5-800.webp 800w, assets/skylinepics/opt/s5-1200.webp 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px">
+                <img src="assets/skylinepics/opt/s5-800.jpg" srcset="assets/skylinepics/opt/s5-480.jpg 480w, assets/skylinepics/opt/s5-800.jpg 800w, assets/skylinepics/opt/s5-1200.jpg 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px" alt="Guests racing down the multi-lane slides" width="800" height="640" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <span class="party-flow-label">Step 01</span>
+            <h3>Adventure</h3>
+            <p>Private party spaces and exciting attractions for guests of every age.</p>
+          </article>
+          <article class="party-flow-step reveal reveal-up" style="--d:1">
+            <div class="party-flow-media">
+              <picture>
+                <source type="image/webp" srcset="assets/skylinepics/opt/s8-480.webp 480w, assets/skylinepics/opt/s8-800.webp 800w, assets/skylinepics/opt/s8-1200.webp 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px">
+                <img src="assets/skylinepics/opt/s8-800.jpg" srcset="assets/skylinepics/opt/s8-480.jpg 480w, assets/skylinepics/opt/s8-800.jpg 800w, assets/skylinepics/opt/s8-1200.jpg 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px" alt="Fuel Zone Café with pizza, snacks, and drinks" width="800" height="600" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <span class="party-flow-label">Step 02</span>
+            <h3>Fuel Up</h3>
+            <p>Delicious food options and birthday decorations to make the moment special.</p>
+          </article>
+          <article class="party-flow-step reveal reveal-up" style="--d:2">
+            <div class="party-flow-media">
+              <picture>
+                <source type="image/webp" srcset="assets/skylinepics/opt/s7-480.webp 480w, assets/skylinepics/opt/s7-800.webp 800w, assets/skylinepics/opt/s7-1200.webp 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px">
+                <img src="assets/skylinepics/opt/s7-800.jpg" srcset="assets/skylinepics/opt/s7-480.jpg 480w, assets/skylinepics/opt/s7-800.jpg 800w, assets/skylinepics/opt/s7-1200.jpg 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px" alt="Soft play area with comfortable parent seating alongside" width="800" height="600" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <span class="party-flow-label">Step 03</span>
+            <h3>Stress Free</h3>
+            <p>Dedicated party hosts and hassle-free planning from start to finish.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Packages -->
+    <section class="party-packages-section" id="packages">
+      <div class="wrap">
+        <div class="party-packages-head reveal">
+          <h2>Party Packages</h2>
+          <p>Flexible guest packages for intimate celebrations or large birthday events.</p>
+        </div>
+
+        <div class="party-packages-grid">
+          <article class="party-pkg-card reveal reveal-up" style="--d:0">
+            <div class="party-pkg-media">
+              <picture>
+                <source type="image/webp" srcset="assets/skylinepics/opt/s3-480.webp 480w, assets/skylinepics/opt/s3-800.webp 800w, assets/skylinepics/opt/s3-1200.webp 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px">
+                <img src="assets/skylinepics/opt/s3-800.jpg" srcset="assets/skylinepics/opt/s3-480.jpg 480w, assets/skylinepics/opt/s3-800.jpg 800w, assets/skylinepics/opt/s3-1200.jpg 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px" alt="Bumper karts on the indoor track" width="800" height="533" loading="lazy" decoding="async">
+              </picture>
+              <span class="party-pkg-badge">Weekday</span>
+            </div>
+            <div class="party-pkg-body">
+              <h3>10 Jumpers · Mon–Thu</h3>
+              <p class="party-pkg-price">$300</p>
+              <ul>
+                <li>10 Jumpers</li>
+                <li>Private party space</li>
+                <li>Exciting attractions</li>
+                <li>Dedicated party host</li>
+                <li>Delicious food options</li>
+                <li>Birthday decorations</li>
+                <li>$25 per extra child</li>
+              </ul>
+              <a class="btn" href="index.html?guide=1" data-location-guide data-plan="party">Book This Package</a>
+            </div>
+          </article>
+
+          <article class="party-pkg-card party-pkg-featured reveal reveal-up" style="--d:1">
+            <div class="party-pkg-media">
+              <picture>
+                <source type="image/webp" srcset="assets/skylinepics/opt/s14-480.webp 480w, assets/skylinepics/opt/s14-800.webp 800w, assets/skylinepics/opt/s14-1200.webp 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px">
+                <img src="assets/skylinepics/opt/s14-800.jpg" srcset="assets/skylinepics/opt/s14-480.jpg 480w, assets/skylinepics/opt/s14-800.jpg 800w, assets/skylinepics/opt/s14-1200.jpg 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px" alt="Large group playing games on the Air Court" width="800" height="640" loading="lazy" decoding="async">
+              </picture>
+              <span class="party-pkg-badge party-pkg-badge-hot">Most Popular</span>
+            </div>
+            <div class="party-pkg-body">
+              <h3>20 Jumpers · Mon–Thu</h3>
+              <p class="party-pkg-price">$450</p>
+              <ul>
+                <li>20 Jumpers</li>
+                <li>Private party space</li>
+                <li>Exciting attractions</li>
+                <li>Dedicated party host</li>
+                <li>Delicious food options</li>
+                <li>Birthday decorations</li>
+                <li>$25 per extra child</li>
+              </ul>
+              <a class="btn" href="index.html?guide=1" data-location-guide data-plan="party">Book This Package</a>
+            </div>
+          </article>
+
+          <article class="party-pkg-card reveal reveal-up" style="--d:2">
+            <div class="party-pkg-media">
+              <picture>
+                <source type="image/webp" srcset="assets/skylinepics/opt/s1-480.webp 480w, assets/skylinepics/opt/s1-800.webp 800w, assets/skylinepics/opt/s1-1200.webp 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px">
+                <img src="assets/skylinepics/opt/s1-800.jpg" srcset="assets/skylinepics/opt/s1-480.jpg 480w, assets/skylinepics/opt/s1-800.jpg 800w, assets/skylinepics/opt/s1-1200.jpg 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px" alt="Guests taking on the Ninja Warrior course" width="800" height="533" loading="lazy" decoding="async">
+              </picture>
+              <span class="party-pkg-badge">Weekend</span>
+            </div>
+            <div class="party-pkg-body">
+              <h3>10 Jumpers · Fri–Sun</h3>
+              <p class="party-pkg-price">$340</p>
+              <ul>
+                <li>10 Jumpers</li>
+                <li>Private party space</li>
+                <li>Exciting attractions</li>
+                <li>Dedicated party host</li>
+                <li>Delicious food options</li>
+                <li>Birthday decorations</li>
+                <li>$25 per extra child</li>
+              </ul>
+              <a class="btn" href="index.html?guide=1" data-location-guide data-plan="party">Book This Package</a>
+            </div>
+          </article>
+
+          <article class="party-pkg-card reveal reveal-up" style="--d:3">
+            <div class="party-pkg-media">
+              <picture>
+                <source type="image/webp" srcset="assets/skylinepics/opt/s12-480.webp 480w, assets/skylinepics/opt/s12-800.webp 800w, assets/skylinepics/opt/s12-1200.webp 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px">
+                <img src="assets/skylinepics/opt/s12-800.jpg" srcset="assets/skylinepics/opt/s12-480.jpg 480w, assets/skylinepics/opt/s12-800.jpg 800w, assets/skylinepics/opt/s12-1200.jpg 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1100px) 48vw, 640px" alt="Two teams facing off on the dodgeball courts" width="800" height="533" loading="lazy" decoding="async">
+              </picture>
+              <span class="party-pkg-badge">Weekend</span>
+            </div>
+            <div class="party-pkg-body">
+              <h3>20 Jumpers · Fri–Sun</h3>
+              <p class="party-pkg-price">$540</p>
+              <ul>
+                <li>20 Jumpers</li>
+                <li>Private party space</li>
+                <li>Exciting attractions</li>
+                <li>Dedicated party host</li>
+                <li>Delicious food options</li>
+                <li>Birthday decorations</li>
+                <li>$25 per extra child</li>
+              </ul>
+              <a class="btn" href="index.html?guide=1" data-location-guide data-plan="party">Book This Package</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="party-cta-band topo">
+      <div class="wrap party-cta-flex reveal">
+        <div>
+          <h2>Ready for Your Next Adventure?</h2>
+          <p>Whether you&rsquo;re planning a birthday, school trip, or corporate event — Skyline 360 Park is ready.</p>
+        </div>
+        <div class="party-cta-actions">
+          <a class="btn btn-lg" href="index.html?guide=1" data-location-guide data-plan="party">Book Now</a>
+          <a class="btn btn-lg btn-ghost-light" href="contact.html">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer-brand" aria-label="Brand">
+      <div class="mega-marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span class="mega-item"><span class="mega-name">Skyline <em>360</em> Park</span><span class="orb"><span></span></span></span>
+          <span class="mega-item"><span class="mega-name">Skyline <em>360</em> Park</span><span class="orb"><span></span></span></span>
+          <span class="mega-item"><span class="mega-name">Skyline <em>360</em> Park</span><span class="orb"><span></span></span></span>
+          <span class="mega-item"><span class="mega-name">Skyline <em>360</em> Park</span><span class="orb"><span></span></span></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <footer class="site-footer">
+    <nav class="footer-links" aria-label="Helpful links">
+      <a href="waiver.html?mode=walkin" data-waiver-entry>Sign a waiver</a>
+    </nav>
+    <p class="footer-copy">
+      <span class="footer-copy-brand">&copy; @skyline360</span>
+      <span class="footer-copy-sep" aria-hidden="true">·</span>
+      <span class="footer-copy-note">All Rights Reserved.</span>
+    </p>
+  </footer>
+
+  <script src="js/parks-data.js?v=20260905-10" defer></script>
+  <script src="js/main.js?v=20260905-10" defer></script>
+  <script src="js/location-guide.js?v=20260905-16" defer></script>
+</body>
+</html>

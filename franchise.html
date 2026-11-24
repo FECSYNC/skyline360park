@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<!--
+  Skyline 360 Park
+  Design, front-end architecture & build: Steve Ubangha Ewa
+  https://nazarng.com/steve.html
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Franchise With Us | Skyline 360 Park</title>
+  <meta name="description" content="Own a Skyline 360 Park. One brand, independently operated locations. Inquire to bring Skyline to your market.">
+  <meta name="author" content="Steve Ubangha Ewa">
+  <link rel="author" href="https://nazarng.com/steve.html">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="css/styles.css?v=20260905-16">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;700;800&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet"></noscript>
+  <link rel="preload" as="image" href="assets/skylinepics/opt/s1-800.webp" type="image/webp" imagesrcset="assets/skylinepics/opt/s1-480.webp 480w, assets/skylinepics/opt/s1-800.webp 800w, assets/skylinepics/opt/s1-1200.webp 1200w" imagesizes="(max-width: 900px) 92vw, 560px">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add("has-loader", "is-loading");
+      window.setTimeout(function () {
+        root.classList.remove("has-loader", "is-loading");
+      }, 1400);
+    })();
+  </script>
+  <link rel="stylesheet" href="css/styles.css?v=20260905-16">
+</head>
+<body data-page="franchise">
+  <div class="page-loader" id="page-loader" role="status" aria-label="Loading Skyline 360 Park">
+    <div class="loader-stage" aria-hidden="true">
+      <span class="loader-ring loader-track"></span>
+      <span class="loader-ring loader-track-inner"></span>
+      <span class="loader-ring loader-sweep"></span>
+      <span class="loader-ring loader-sweep loader-sweep-alt"></span>
+      <span class="loader-spark"></span>
+      <picture class="loader-logo">
+        <img src="assets/logo-sm.png" alt="" width="220" height="66" decoding="async" fetchpriority="low">
+      </picture>
+    </div>
+    <p class="loader-caption" aria-hidden="true">360&deg; of fun</p>
+    <div class="loader-bar" aria-hidden="true"><span></span></div>
+  </div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand brand-panel" href="index.html" aria-label="Skyline 360 Park home">
+        <img class="brand-chrome" src="assets/nav-brand-chrome.svg" alt="" width="340" height="120" aria-hidden="true" decoding="async" fetchpriority="low">
+        <img class="brand-logo" src="assets/logo-nav.png" alt="Skyline 360 Park" width="412" height="176" decoding="async" fetchpriority="high">
+      </a>
+
+      <div class="header-main">
+        <img class="header-main-chrome" src="assets/nav-bar-chrome.svg" alt="" width="980" height="100" aria-hidden="true" decoding="async" fetchpriority="low">
+        <div class="header-main-body">
+          <nav class="nav-desktop" aria-label="Primary">
+            <a class="nav-link" href="attractions.html">
+              <span class="nav-ico nav-ico-attractions" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none"><path d="M4 24 L10 12 L15 20 L19 10 L28 24 Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M19 10 V6 M19 6 L16.5 8.5 M19 6 L21.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="nav-label">Attractions</span>
+            </a>
+            <div class="nav-item has-dropdown">
+              <button type="button" class="nav-dropdown-toggle nav-link" aria-expanded="false" aria-haspopup="true">
+                <span class="nav-ico nav-ico-location" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" fill="none"><path d="M16 28s-9-9.2-9-15a9 9 0 1 1 18 0c0 5.8-9 15-9 15z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="16" cy="13" r="3.2" stroke="currentColor" stroke-width="2.2"/></svg>
+                </span>
+                <span class="nav-label">Location <span class="nav-caret" aria-hidden="true"></span></span>
+              </button>
+              <div class="nav-dropdown" role="menu">
+                <div class="nav-dropdown-inner">
+                  <a href="location.html?id=katy" role="menuitem">Katy, Texas</a>
+                  <a href="location.html?id=fort-worth" role="menuitem">Fort Worth, Texas</a>
+                  <a href="location.html?id=pennsylvania" role="menuitem">Pennsylvania</a>
+                </div>
+              </div>
+            </div>
+            <a class="nav-link" href="contact.html">
+              <span class="nav-ico nav-ico-contact" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none"><path d="M10 8c0-1.5 1.2-3 3-3h1.2c.7 0 1.3.4 1.5 1.1l1 3.2c.2.7 0 1.4-.6 1.8l-1.4 1c1.4 2.8 3.6 5 6.4 6.4l1-1.4c.4-.6 1.1-.8 1.8-.6l3.2 1c.7.2 1.1.8 1.1 1.5V21c0 1.8-1.5 3-3 3C14.6 24 8 17.4 8 10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M22 7c1.8 1 3.2 2.4 4 4M23.5 4.5c2.6 1.4 4.6 3.5 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </span>
+              <span class="nav-label nav-label-contact">Contact</span>
+            </a>
+          
+            <a class="nav-link" href="waiver.html?mode=walkin">
+              <span class="nav-ico nav-ico-waiver" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none"><path d="M8 6h12l4 4v16H8V6z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M20 6v4h4M12 14h8M12 18h8M12 22h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </span>
+              <span class="nav-label">Waiver</span>
+            </a></nav>
+
+          <div class="header-ctas">
+            <a class="btn-stamp btn-stamp-party" href="book-party.html">
+              <span class="btn-stamp-ico" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none"><path d="M8 26 L14 12 L20 26 Z" fill="currentColor"/><path d="M14 12 L16 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="20" cy="8" r="1.4" fill="currentColor"/><circle cx="24" cy="12" r="1.2" fill="currentColor"/><circle cx="22" cy="16" r="1.1" fill="currentColor"/><path d="M18 10l4-2M19 14l5 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </span>
+              <span class="btn-stamp-text">Book a Party</span>
+              <span class="btn-stamp-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M10 8l4 4-4 4" stroke="#1a0530" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
+            <a class="btn-stamp btn-stamp-visit" href="#apply" aria-current="page">
+              <span class="btn-stamp-ico" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none"><path d="M4 26h24M6 26V12l10-7 10 7v14" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M13 26v-7h6v7" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M12 14h2M18 14h2M12 18h2M18 18h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </span>
+              <span class="btn-stamp-text">Franchise With Us</span>
+              <span class="btn-stamp-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M10 8l4 4-4 4" stroke="#1a0530" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+    <a href="attractions.html">Attractions</a>
+    <div class="mobile-dropdown">
+      <button type="button" class="mobile-dropdown-toggle" aria-expanded="false">
+        Location
+        <span class="nav-caret" aria-hidden="true"></span>
+      </button>
+      <div class="mobile-dropdown-panel">
+        <a href="location.html?id=katy">Katy, Texas</a>
+        <a href="location.html?id=fort-worth">Fort Worth, Texas</a>
+        <a href="location.html?id=pennsylvania">Pennsylvania</a>
+      </div>
+    </div>
+    <a href="contact.html">Contact</a>
+    
+    <a href="waiver.html?mode=walkin">Waiver</a>
+<div class="mobile-nav-ctas">
+      <a class="btn-stamp btn-stamp-party" href="book-party.html">
+        <span class="btn-stamp-text">Book a Party</span>
+      </a>
+      <a class="btn-stamp btn-stamp-visit" href="#apply" aria-current="page">
+        <span class="btn-stamp-text">Franchise With Us</span>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="contact-hero franchise-hero topo" aria-label="Franchise welcome">
+      <div class="wrap contact-hero-flex">
+        <div class="contact-hero-copy reveal reveal-left">
+          <p class="eyebrow">Franchise opportunities</p>
+          <h1>Own the next Skyline 360 Park</h1>
+          <p class="contact-hero-lead">
+            Skyline 360 Park is one brand with independently operated locations.
+            You operate your park. We support you with the operating playbook, the attractions model, and the brand guests already recognize.
+          </p>
+          <div class="contact-hero-actions">
+            <a class="btn btn-lg" href="#apply">Request information</a>
+            <a class="btn btn-lg btn-ghost-light" href="#process">See the process</a>
+          </div>
+          <div class="party-page-hero-stats franchise-hero-stats">
+            <div><strong>One</strong><span>Brand</span></div>
+            <div><strong>Local</strong><span>Operators</span></div>
+            <div><strong>Your</strong><span>Park to Run</span></div>
+          </div>
+        </div>
+        <div class="contact-hero-visual reveal reveal-right">
+          <figure class="contact-hero-photo media-zoom" data-tilt>
+            <picture>
+              <source type="image/webp" srcset="assets/skylinepics/opt/s1-480.webp 480w, assets/skylinepics/opt/s1-800.webp 800w, assets/skylinepics/opt/s1-1200.webp 1200w" sizes="(max-width: 900px) 92vw, 560px">
+              <img src="assets/skylinepics/opt/s1-800.jpg" srcset="assets/skylinepics/opt/s1-480.jpg 480w, assets/skylinepics/opt/s1-800.jpg 800w, assets/skylinepics/opt/s1-1200.jpg 1200w" sizes="(max-width: 900px) 92vw, 560px" alt="Indoor adventure floor at Skyline 360 Park" width="800" height="600" loading="eager" decoding="async" fetchpriority="high">
+            </picture>
+          </figure>
+          <div class="contact-hero-badge" aria-hidden="true">
+            <strong>360&deg;</strong>
+            <span>Of Fun</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="franchise-model" id="model" aria-label="Brand and park model">
+      <div class="wrap">
+        <div class="franchise-model-head reveal">
+          <p class="eyebrow">How Skyline works</p>
+          <h2>One brand. Each park is its own operation.</h2>
+          <p>
+            Guests know Skyline 360 Park. Operators run the location — hours, team, parties, and the local guest experience —
+            while the brand keeps the look, attractions model, and systems consistent.
+          </p>
+        </div>
+        <div class="franchise-model-grid">
+          <article class="franchise-model-card franchise-model-brand reveal reveal-left">
+            <p class="franchise-model-kicker">The brand</p>
+            <h3>Skyline 360 Park</h3>
+            <p>A shared corporate playbook so a guest in Katy, Texas and a guest in Pennsylvania enjoy a consistent Skyline experience.</p>
+            <ul>
+              <li>Brand, look, and guest experience standards</li>
+              <li>Attractions model and park layout guidance</li>
+              <li>Booking, waiver, and party systems</li>
+              <li>National marketing and launch support</li>
+            </ul>
+          </article>
+          <article class="franchise-model-card franchise-model-park reveal reveal-right">
+            <p class="franchise-model-kicker">Your park</p>
+            <h3>You operate the location</h3>
+            <p>Each franchisee manages their park day to day. You lead your market, your team, and your community, with brand support behind you.</p>
+            <ul>
+              <li>Local staff, hours, and floor operations</li>
+              <li>Parties, groups, and neighborhood events</li>
+              <li>Park-specific contact, bookings, and waivers</li>
+              <li>Local promotions that fit your city</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="party-why franchise-why" aria-label="Why franchise">
+      <div class="wrap">
+        <div class="party-why-head reveal">
+          <h2>Why operators choose Skyline</h2>
+          <p>An indoor adventure format with room for each location to serve its own market.</p>
+        </div>
+        <div class="party-why-flex">
+          <article class="party-why-card reveal reveal-up" style="--d:0">
+            <div class="party-why-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M8 38V18l16-10 16 10v20" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M20 38v-12h8v12" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Protected local market</h3>
+            <p>You operate one park in a defined area. The brand grows by adding locations — not by competing with yours.</p>
+          </article>
+          <article class="party-why-card reveal reveal-up" style="--d:1">
+            <div class="party-why-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="14" stroke="currentColor" stroke-width="2.5"/><path d="M24 16v8l6 4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Ready-to-run systems</h3>
+            <p>Waivers, tickets, parties, and contact already work for each park. You add your location to a system that is already in use.</p>
+          </article>
+          <article class="party-why-card reveal reveal-up" style="--d:2">
+            <div class="party-why-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M10 32c4-10 8-14 14-16 6 2 10 6 14 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="24" cy="16" r="5" stroke="currentColor" stroke-width="2.5"/></svg>
+            </div>
+            <h3>Demand that repeats</h3>
+            <p>Birthdays, groups, memberships, and walk-in fun keep a park busy all week — not only on opening weekend.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-blue topo franchise-markets" aria-label="Current markets">
+      <div class="wrap">
+        <div class="party-flow-head reveal">
+          <h2 class="section-title">Parks in the network</h2>
+          <p class="party-flow-lead">Each location has its own park page, booking flow, and local team. New franchisees join this network.</p>
+        </div>
+        <div class="franchise-market-grid" data-franchise-markets></div>
+      </div>
+    </section>
+
+    <section class="franchise-process" id="process" aria-label="Franchise process">
+      <div class="wrap">
+        <div class="franchise-process-head reveal">
+          <p class="eyebrow">Getting started</p>
+          <h2>How you become a Skyline operator</h2>
+          <p>A clear process from first inquiry to grand opening. You operate the park; the brand remains with you.</p>
+        </div>
+        <ol class="franchise-steps">
+          <li class="franchise-step reveal reveal-up" style="--d:0">
+            <span>01</span>
+            <div>
+              <h3>Is there a fit?</h3>
+              <p>Complete the form. Tell us your market, capital, and timeline. We look for operators who value people, energy, and a well-run park.</p>
+            </div>
+          </li>
+          <li class="franchise-step reveal reveal-up" style="--d:1">
+            <span>02</span>
+            <div>
+              <h3>Introduction call</h3>
+              <p>A live conversation with the franchise team: the model, how each location operates independently, and your questions.</p>
+            </div>
+          </li>
+          <li class="franchise-step reveal reveal-up" style="--d:2">
+            <span>03</span>
+            <div>
+              <h3>See a park</h3>
+              <p>Visit an operating or launching Skyline location so you can see the guest experience, attractions, and day-to-day reality.</p>
+            </div>
+          </li>
+          <li class="franchise-step reveal reveal-up" style="--d:3">
+            <span>04</span>
+            <div>
+              <h3>The legal path</h3>
+              <p>If there is a fit, you receive the opportunity overview and, where required, a Franchise Disclosure Document. No agreement until that process is complete.</p>
+            </div>
+          </li>
+          <li class="franchise-step reveal reveal-up" style="--d:4">
+            <span>05</span>
+            <div>
+              <h3>Propose a location</h3>
+              <p>You bring candidate sites in your territory. We share criteria for size, parking, and trade area so your park can thrive without overlapping another Skyline.</p>
+            </div>
+          </li>
+          <li class="franchise-step reveal reveal-up" style="--d:5">
+            <span>06</span>
+            <div>
+              <h3>Build &amp; train</h3>
+              <p>After a lease, the brand helps with layout, vendors, and operations training. You hire and lead the local team.</p>
+            </div>
+          </li>
+          <li class="franchise-step reveal reveal-up" style="--d:6">
+            <span>07</span>
+            <div>
+              <h3>Grand opening</h3>
+              <p>Doors open. You operate the park. Skyline stays the brand guests recognize — and you own the local experience.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="franchise-apply" id="apply" aria-label="Franchise application">
+      <div class="wrap">
+        <div class="franchise-apply-head reveal">
+          <p class="eyebrow">Get in touch</p>
+          <h2>Franchise opportunities</h2>
+          <p>
+            This form takes about two minutes. Enter a city, state, or country and we will complete the matching fields, then email your inquiry to
+            <a href="mailto:franchise@skyline360park.com">franchise@skyline360park.com</a>.
+          </p>
+          <ol class="franchise-mini-steps">
+            <li><strong>1.</strong> Apply</li>
+            <li><strong>2.</strong> Talk</li>
+            <li><strong>3.</strong> Visit a park</li>
+            <li><strong>4.</strong> Open your location</li>
+          </ol>
+        </div>
+
+        <div class="franchise-form-card reveal">
+          <div class="franchise-success" data-franchise-success hidden>
+            <h3>Inquiry received</h3>
+            <p>Thank you. The franchise team has your inquiry, and a confirmation from SKYLINE360PARK is on the way to your inbox. Feel free to explore our website to learn more about Skyline 360 Park.</p>
+          </div>
+
+          <form
+            class="franchise-form"
+            data-franchise-form
+            action="franchise-mail.php"
+            method="post"
+            novalidate
+          >
+            <input type="hidden" name="started_at" data-franchise-started value="">
+            <input type="hidden" name="market_label" data-franchise-market-label value="">
+            <input type="hidden" name="market_status" data-franchise-market-status value="">
+            <input type="hidden" name="nearest_park" data-franchise-nearest-park value="">
+            <input type="hidden" name="nearest_miles" data-franchise-nearest-miles value="">
+            <input type="hidden" name="market_notes" data-franchise-market-notes value="">
+            <input type="hidden" name="captcha_token" data-franchise-captcha-token value="">
+            <div class="hp-field" aria-hidden="true">
+              <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+            </div>
+
+            <div class="franchise-progress" data-franchise-progress>
+              <div class="franchise-progress-track" aria-hidden="true">
+                <span class="franchise-progress-bar" data-franchise-progress-bar></span>
+              </div>
+              <p class="franchise-progress-label" data-franchise-progress-label>Begin with any field. We will highlight anything we complete for you.</p>
+            </div>
+
+            <fieldset class="franchise-block">
+              <legend>About you</legend>
+              <p class="franchise-block-lead">Start with your name and how we should reach you.</p>
+              <div class="franchise-form-row">
+                <label>
+                  First Name <span class="req" aria-hidden="true">*</span>
+                  <input type="text" name="first_name" autocomplete="given-name" required maxlength="80" placeholder="Jordan">
+                </label>
+                <label>
+                  Last Name <span class="req" aria-hidden="true">*</span>
+                  <input type="text" name="last_name" autocomplete="family-name" required maxlength="80" placeholder="Lee">
+                </label>
+              </div>
+              <div class="franchise-form-row">
+                <label>
+                  Mobile Number <span class="req" aria-hidden="true">*</span>
+                  <input type="tel" name="phone" autocomplete="tel" required maxlength="40" placeholder="(555) 000-0000">
+                </label>
+                <label>
+                  Email Address <span class="req" aria-hidden="true">*</span>
+                  <input type="email" name="email" autocomplete="email" required maxlength="120" placeholder="you@email.com">
+                </label>
+              </div>
+              <label>
+                Preferred contact <span class="req" aria-hidden="true">*</span>
+                <select name="contact_pref" required>
+                  <option value="">How should we reach you?</option>
+                  <option value="Either is fine">Either is fine</option>
+                  <option value="Email">Email</option>
+                  <option value="Phone">Phone</option>
+                </select>
+              </label>
+            </fieldset>
+
+            <fieldset class="franchise-block">
+              <legend>Your market</legend>
+              <p class="franchise-block-lead">Enter a city, state, or country. We will complete the matching address fields and compare them with parks already in the network.</p>
+              <div class="franchise-guide" data-franchise-guide>
+                <label class="franchise-guide-label" for="franchise-market-q">Where do you want to open?</label>
+                <div class="franchise-guide-search">
+                  <input
+                    id="franchise-market-q"
+                    class="franchise-guide-input"
+                    type="search"
+                    name="market_query"
+                    autocomplete="off"
+                    placeholder="Try “Katy, Texas”, “Pennsylvania”, or “Nigeria”"
+                    aria-autocomplete="list"
+                    aria-controls="franchise-market-suggest"
+                    data-franchise-market-q
+                  >
+                  <button type="button" class="franchise-guide-locate" data-franchise-locate>
+                    Use my location
+                  </button>
+                </div>
+                <div
+                  class="franchise-suggest"
+                  id="franchise-market-suggest"
+                  data-franchise-suggest
+                  hidden
+                  role="listbox"
+                  aria-label="Place suggestions"
+                ></div>
+                <p class="franchise-guide-hint" data-franchise-guide-hint>
+                  Allow location access, or enter a city, state, or country. Matching fields will highlight when we complete them.
+                </p>
+                <div class="franchise-insight" data-franchise-insight hidden></div>
+              </div>
+
+              <label>
+                Address <span class="req" aria-hidden="true">*</span>
+                <input type="text" name="address" autocomplete="street-address" required maxlength="160" placeholder="Street address" data-franchise-address>
+              </label>
+              <div class="franchise-form-row">
+                <label>
+                  City <span class="req" aria-hidden="true">*</span>
+                  <input type="text" name="city" autocomplete="address-level2" required maxlength="80" placeholder="City" data-franchise-city>
+                </label>
+                <label>
+                  State <span class="req" aria-hidden="true">*</span>
+                  <select name="state" required data-franchise-state>
+                    <option value="">Select a State</option>
+                  </select>
+                </label>
+              </div>
+              <div class="franchise-form-row">
+                <label>
+                  Zip / Postal code <span class="req" aria-hidden="true">*</span>
+                  <input type="text" name="zip" autocomplete="postal-code" required maxlength="20" placeholder="Zip or N/A" data-franchise-zip>
+                </label>
+                <label>
+                  Country <span class="req" aria-hidden="true">*</span>
+                  <input type="text" name="country" list="franchise-countries" autocomplete="country-name" required maxlength="80" value="United States" placeholder="Country" data-franchise-country>
+                </label>
+              </div>
+              <datalist id="franchise-countries">
+                <option value="United States"></option>
+                <option value="Canada"></option>
+                <option value="Mexico"></option>
+                <option value="United Kingdom"></option>
+                <option value="Nigeria"></option>
+                <option value="Ghana"></option>
+                <option value="South Africa"></option>
+                <option value="India"></option>
+                <option value="Pakistan"></option>
+                <option value="United Arab Emirates"></option>
+                <option value="Saudi Arabia"></option>
+                <option value="Australia"></option>
+                <option value="New Zealand"></option>
+                <option value="Germany"></option>
+                <option value="France"></option>
+                <option value="Spain"></option>
+                <option value="Italy"></option>
+                <option value="Netherlands"></option>
+                <option value="Ireland"></option>
+                <option value="Brazil"></option>
+                <option value="Colombia"></option>
+                <option value="Philippines"></option>
+                <option value="Singapore"></option>
+                <option value="Japan"></option>
+                <option value="South Korea"></option>
+                <option value="China"></option>
+              </datalist>
+              <p class="franchise-help">We are currently focused on U.S. parks. International inquiries are welcome. If you are outside the United States, we will set State to “Not in United States” for you.</p>
+            </fieldset>
+
+            <fieldset class="franchise-block">
+              <legend>Investment snapshot</legend>
+              <p class="franchise-block-lead">Please select ranges only. Exact capital requirements are confirmed on the first call, not on this page.</p>
+              <div class="franchise-form-row">
+                <label>
+                  Investment Timeline <span class="req" aria-hidden="true">*</span>
+                  <select name="timeline" required>
+                    <option value="">Select a timeline</option>
+                    <option value="Within the next 6 months">Within the next 6 months</option>
+                    <option value="6-12 months">6–12 months</option>
+                    <option value="More than 12 months">More than 12 months</option>
+                  </select>
+                </label>
+                <div class="franchise-age-field" data-franchise-age-field>
+                  <p class="franchise-age-label">Are you 21 or older? <span class="req" aria-hidden="true">*</span></p>
+                  <div class="franchise-age-choices" role="radiogroup" aria-label="Age requirement">
+                    <label class="franchise-age-choice is-yes">
+                      <input type="radio" name="age" value="Yes, I am 21 years of age or older" required data-franchise-age>
+                      <span class="franchise-age-card">
+                        <span class="franchise-age-emoji" aria-hidden="true">✓</span>
+                        <span class="franchise-age-title">Yes — I am 21+</span>
+                        <span class="franchise-age-note">Ready to inquire</span>
+                      </span>
+                    </label>
+                    <label class="franchise-age-choice is-no">
+                      <input type="radio" name="age" value="No, I am not" data-franchise-age>
+                      <span class="franchise-age-card">
+                        <span class="franchise-age-emoji" aria-hidden="true">·</span>
+                        <span class="franchise-age-title">Not yet</span>
+                        <span class="franchise-age-note">Come back at 21</span>
+                      </span>
+                    </label>
+                  </div>
+                  <p class="franchise-age-feedback" data-franchise-age-feedback hidden></p>
+                </div>
+              </div>
+              <p class="franchise-help">Franchise opportunities are available to adults 21 years of age and older.</p>
+              <div class="franchise-age-gate" data-franchise-age-gate>
+              <div class="franchise-form-row">
+                <label>
+                  Net Worth <span class="req" aria-hidden="true">*</span>
+                  <select name="net_worth" required>
+                    <option value="">Select a range</option>
+                    <option value="Under $1,000,000">Under $1,000,000</option>
+                    <option value="$1,000,000 – $3,000,000">$1,000,000 – $3,000,000</option>
+                    <option value="$3,000,000+">$3,000,000+</option>
+                  </select>
+                </label>
+                <label>
+                  Liquid capital <span class="req" aria-hidden="true">*</span>
+                  <select name="capital" required>
+                    <option value="">Select a range</option>
+                    <option value="Under $250,000">Under $250,000</option>
+                    <option value="$250,000 – $500,000">$250,000 – $500,000</option>
+                    <option value="$500,000 – $1,000,000">$500,000 – $1,000,000</option>
+                    <option value="$1,000,000+">$1,000,000+</option>
+                  </select>
+                </label>
+              </div>
+              <div class="franchise-form-row">
+                <label>
+                  Relevant experience <span class="req" aria-hidden="true">*</span>
+                  <select name="experience" required>
+                    <option value="">Select one</option>
+                    <option value="Family entertainment / indoor park">Family entertainment / indoor park</option>
+                    <option value="Existing franchise owner">Existing franchise owner</option>
+                    <option value="Retail, hospitality, or operations">Retail, hospitality, or operations</option>
+                    <option value="First-time operator">First-time operator</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </label>
+                <label>
+                  Locations of interest <span class="req" aria-hidden="true">*</span>
+                  <select name="units" required>
+                    <option value="">How many parks?</option>
+                    <option value="One location">One location</option>
+                    <option value="Two or more locations">Two or more locations</option>
+                    <option value="Not sure yet">Not sure yet</option>
+                  </select>
+                </label>
+              </div>
+              <label>
+                How did you hear about Skyline? <span class="req" aria-hidden="true">*</span>
+                <select name="heard" required>
+                  <option value="">Select one</option>
+                  <option value="Visited a Skyline park">Visited a Skyline park</option>
+                  <option value="Online search">Online search</option>
+                  <option value="Social media">Social media</option>
+                  <option value="Friend, family, or colleague">Friend, family, or colleague</option>
+                  <option value="Franchise listing or broker">Franchise listing or broker</option>
+                  <option value="Other">Other</option>
+                </select>
+              </label>
+              <label>
+                Anything else we should know?
+                <textarea name="message" maxlength="4000" rows="3" placeholder="Optional. Add another city, your background, or a question."></textarea>
+              </label>
+              </div>
+            </fieldset>
+
+            <div class="franchise-form-footer" data-franchise-submit-zone>
+              <div class="franchise-captcha">
+                <div class="franchise-captcha-head">
+                  <p class="franchise-captcha-label">Park code <span class="req" aria-hidden="true">*</span></p>
+                  <button type="button" class="franchise-captcha-refresh" data-franchise-captcha-refresh>New code</button>
+                </div>
+                <p class="franchise-captcha-help">Type the six characters shown. Use New code if you need a fresh one.</p>
+                <div class="franchise-captcha-row">
+                  <div class="franchise-captcha-board" data-franchise-captcha-board aria-hidden="true"></div>
+                  <input
+                    type="text"
+                    name="captcha"
+                    autocomplete="off"
+                    autocapitalize="characters"
+                    spellcheck="false"
+                    required
+                    maxlength="8"
+                    placeholder="Enter code"
+                    aria-label="Enter the park code"
+                    inputmode="text"
+                    data-franchise-captcha-input
+                  >
+                </div>
+              </div>
+              <button class="franchise-submit" type="submit" data-franchise-submit>Send my inquiry <span aria-hidden="true">›</span></button>
+            </div>
+            <p class="franchise-legal">
+              This is a franchise inquiry, not an application for credit and not an offer to sell a franchise. Any franchise offer is made only through a Franchise Disclosure Document where required by law. We will not ask for Social Security numbers or bank statements on this page.
+            </p>
+            <p class="form-status" data-franchise-status role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq">
+      <div class="wrap">
+        <div class="faq-head reveal">
+          <h2>FAQs</h2>
+          <p>Franchise questions</p>
+        </div>
+        <div class="faq-grid" data-faq-accordion>
+          <details class="faq-card reveal">
+            <summary class="faq-q">Does each location run its own park?</summary>
+            <div class="answer-body">
+              <p>Yes. Skyline 360 Park is the brand. Each franchisee operates their location — local team, hours, parties, and guest experience — with shared brand standards and systems.</p>
+            </div>
+          </details>
+          <details class="faq-card reveal">
+            <summary class="faq-q">Where does my application go?</summary>
+            <div class="answer-body">
+              <p>Two emails go out. The franchise team is notified at franchise@skyline360park.com with only the answers you typed on the form. Extra internal team inboxes (if any) stay private and are never shown to you. You receive a confirmation that lists those same answers and the public contact address franchise@skyline360park.com — nothing the guide auto-filled on the page.</p>
+            </div>
+          </details>
+          <details class="faq-card reveal">
+            <summary class="faq-q">How does the location guide work?</summary>
+            <div class="answer-body">
+              <p>Enter a city, state, or country. We complete the matching address fields (they highlight so you can see what changed), then compare the location with parks already in the network. If that local market appears taken, we say so and suggest other options. If it appears new, we ask you to finish the form. You may still inquire either way — the franchise team confirms territory.</p>
+            </div>
+          </details>
+          <details class="faq-card reveal">
+            <summary class="faq-q">Can I apply for a city that already has a park?</summary>
+            <div class="answer-body">
+              <p>Yes. The guide will flag the overlap and suggest other cities or states. You may still send the inquiry if you would like the team to discuss nearby open territories.</p>
+            </div>
+          </details>
+          <details class="faq-card reveal">
+            <summary class="faq-q">Is this a franchise offer?</summary>
+            <div class="answer-body">
+              <p>No. This page and form are an invitation to start a conversation. A franchise can only be offered through a Franchise Disclosure Document in states that require one.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer-brand" aria-label="Brand">
+      <div class="mega-marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span class="mega-item"><span class="mega-name">Skyline <em>360</em> Park</span><span class="orb"><span></span></span></span>
+          <span class="mega-item"><span class="mega-name">Skyline <em>360</em> Park</span><span class="orb"><span></span></span></span>
+          <span class="mega-item"><span class="mega-name">Skyline <em>360</em> Park</span><span class="orb"><span></span></span></span>
+          <span class="mega-item"><span class="mega-name">Skyline <em>360</em> Park</span><span class="orb"><span></span></span></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="footer-links" aria-label="Helpful links">
+      <a href="waiver.html?mode=walkin" data-waiver-entry>Sign a waiver</a>
+    </nav>
+    <p class="footer-copy">
+      <span class="footer-copy-brand">&copy; @skyline360</span>
+      <span class="footer-copy-sep" aria-hidden="true">·</span>
+      <span class="footer-copy-note">All Rights Reserved.</span>
+    </p>
+  </footer>
+
+  <script src="js/parks-data.js?v=20260905-10" defer></script>
+  <script src="js/main.js?v=20260905-10" defer></script>
+  <script src="js/location-guide.js?v=20260905-16" defer></script>
+  <script src="js/franchise.js?v=20260814-55" defer></script>
+</body>
+</html>

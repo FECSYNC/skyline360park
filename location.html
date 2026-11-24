@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<!--
+  Skyline 360 Park — shared location page
+  Design, front-end architecture & build: Steve Ubangha Ewa
+  https://nazarng.com/steve.html
+
+  Open as: location.html?id=katy  |  location.html?id=fort-worth  |  etc.
+  Content comes from js/parks-data.js for that park only.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Location | Skyline 360 Park</title>
+  <meta name="description" content="Find your Skyline 360 Park location, plans, and waivers.">
+  <meta name="author" content="Steve Ubangha Ewa">
+  <link rel="author" href="https://nazarng.com/steve.html">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="css/styles.css?v=20260905-16">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;700;800&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet"></noscript>
+  <link rel="preload" as="image" href="assets/skylinepics/opt/s1-800.webp" type="image/webp">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add("has-loader", "is-loading");
+      window.setTimeout(function () {
+        root.classList.remove("has-loader", "is-loading");
+      }, 1400);
+    })();
+  </script>
+  <link rel="stylesheet" href="css/styles.css?v=20260905-16">
+</head>
+<body>
+  <div class="page-loader" id="page-loader" role="status" aria-label="Loading Skyline 360 Park">
+    <div class="loader-stage" aria-hidden="true">
+      <span class="loader-ring loader-track"></span>
+      <span class="loader-ring loader-track-inner"></span>
+      <span class="loader-ring loader-sweep"></span>
+      <span class="loader-ring loader-sweep loader-sweep-alt"></span>
+      <span class="loader-spark"></span>
+      <picture class="loader-logo">
+        <img src="assets/logo-sm.png" alt="" width="220" height="66" decoding="async" fetchpriority="low">
+      </picture>
+    </div>
+    <p class="loader-caption" aria-hidden="true">360&deg; of fun</p>
+    <div class="loader-bar" aria-hidden="true"><span></span></div>
+  </div>
+  <header class="site-header is-over-hero">
+    <div class="header-inner">
+      <a class="brand brand-panel" href="index.html" aria-label="Skyline 360 Park home">
+        <img class="brand-chrome" src="assets/nav-brand-chrome.svg" alt="" width="340" height="120" aria-hidden="true" decoding="async" fetchpriority="low">
+        <img class="brand-logo" src="assets/logo-nav.png" alt="Skyline 360 Park" width="412" height="176" decoding="async" fetchpriority="high">
+      </a>
+
+      <div class="header-main">
+        <img class="header-main-chrome" src="assets/nav-bar-chrome.svg" alt="" width="980" height="100" aria-hidden="true" decoding="async" fetchpriority="low">
+        <div class="header-main-body">
+          <nav class="nav-desktop" aria-label="Primary">
+            <a class="nav-link" href="attractions.html">
+              <span class="nav-ico nav-ico-attractions" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none"><path d="M4 24 L10 12 L15 20 L19 10 L28 24 Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M19 10 V6 M19 6 L16.5 8.5 M19 6 L21.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="nav-label">Attractions</span>
+            </a>
+            <div class="nav-item has-dropdown">
+              <button type="button" class="nav-dropdown-toggle nav-link is-active" aria-expanded="false" aria-haspopup="true">
+                <span class="nav-ico nav-ico-location" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" fill="none"><path d="M16 28s-9-9.2-9-15a9 9 0 1 1 18 0c0 5.8-9 15-9 15z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="16" cy="13" r="3.2" stroke="currentColor" stroke-width="2.2"/></svg>
+                </span>
+                <span class="nav-label">Location <span class="nav-caret" aria-hidden="true"></span></span>
+              </button>
+              <div class="nav-dropdown" role="menu">
+                <div class="nav-dropdown-inner">
+                  <a href="location.html?id=katy" role="menuitem">Katy, Texas</a>
+                  <a href="location.html?id=fort-worth" role="menuitem">Fort Worth, Texas</a>
+                  <a href="location.html?id=pennsylvania" role="menuitem">Pennsylvania</a>
+                </div>
+              </div>
+            </div>
+            <a class="nav-link" href="contact.html">
+              <span class="nav-ico nav-ico-contact" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none"><path d="M10 8c0-1.5 1.2-3 3-3h1.2c.7 0 1.3.4 1.5 1.1l1 3.2c.2.7 0 1.4-.6 1.8l-1.4 1c1.4 2.8 3.6 5 6.4 6.4l1-1.4c.4-.6 1.1-.8 1.8-.6l3.2 1c.7.2 1.1.8 1.1 1.5V21c0 1.8-1.5 3-3 3C14.6 24 8 17.4 8 10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M22 7c1.8 1 3.2 2.4 4 4M23.5 4.5c2.6 1.4 4.6 3.5 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </span>
+              <span class="nav-label nav-label-contact">Contact</span>
+            </a>
+          
+            <a class="nav-link" href="waiver.html?mode=walkin">
+              <span class="nav-ico nav-ico-waiver" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none"><path d="M8 6h12l4 4v16H8V6z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M20 6v4h4M12 14h8M12 18h8M12 22h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </span>
+              <span class="nav-label">Waiver</span>
+            </a></nav>
+
+          <div class="header-ctas">
+            <a class="btn-stamp btn-stamp-party" href="book-party.html">
+              <span class="btn-stamp-ico" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none"><path d="M8 26 L14 12 L20 26 Z" fill="currentColor"/><path d="M14 12 L16 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="20" cy="8" r="1.4" fill="currentColor"/><circle cx="24" cy="12" r="1.2" fill="currentColor"/><circle cx="22" cy="16" r="1.1" fill="currentColor"/><path d="M18 10l4-2M19 14l5 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </span>
+              <span class="btn-stamp-text">Book a Party</span>
+              <span class="btn-stamp-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M10 8l4 4-4 4" stroke="#1a0530" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
+            <a class="btn-stamp btn-stamp-visit" href="franchise.html">
+              <span class="btn-stamp-ico" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none"><path d="M4 26h24M6 26V12l10-7 10 7v14" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M13 26v-7h6v7" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M12 14h2M18 14h2M12 18h2M18 18h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </span>
+              <span class="btn-stamp-text">Franchise With Us</span>
+              <span class="btn-stamp-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M10 8l4 4-4 4" stroke="#1a0530" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+    <a href="attractions.html">Attractions</a>
+    <div class="mobile-dropdown">
+      <button type="button" class="mobile-dropdown-toggle" aria-expanded="false">
+        Location
+        <span class="nav-caret" aria-hidden="true"></span>
+      </button>
+      <div class="mobile-dropdown-panel">
+        <a href="location.html?id=katy">Katy, Texas</a>
+        <a href="location.html?id=fort-worth">Fort Worth, Texas</a>
+        <a href="location.html?id=pennsylvania">Pennsylvania</a>
+      </div>
+    </div>
+    <a href="contact.html">Contact</a>
+    
+    <a href="waiver.html?mode=walkin">Waiver</a>
+<div class="mobile-nav-ctas">
+      <a class="btn-stamp btn-stamp-party" href="book-party.html">
+        <span class="btn-stamp-text">Book a Party</span>
+      </a>
+      <a class="btn-stamp btn-stamp-visit" href="franchise.html">
+        <span class="btn-stamp-text">Franchise With Us</span>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="soon-page" aria-label="Park location">
+      <div class="soon-page-bg" aria-hidden="true">
+        <picture>
+          <source type="image/webp" data-park-hero-webp srcset="assets/skylinepics/opt/s1-480.webp 480w, assets/skylinepics/opt/s1-800.webp 800w, assets/skylinepics/opt/s1-1200.webp 1200w" sizes="100vw">
+          <img data-park-hero-img src="assets/skylinepics/opt/s1-1200.jpg" srcset="assets/skylinepics/opt/s1-480.jpg 480w, assets/skylinepics/opt/s1-800.jpg 800w, assets/skylinepics/opt/s1-1200.jpg 1200w" sizes="100vw" alt="" width="1200" height="800" decoding="async" fetchpriority="high">
+        </picture>
+      </div>
+      <div class="soon-orbs" aria-hidden="true">
+        <span class="soon-orb soon-orb-a"></span>
+        <span class="soon-orb soon-orb-b"></span>
+        <span class="soon-orb soon-orb-c"></span>
+      </div>
+      <div class="soon-sparkles" aria-hidden="true">
+        <span class="soon-sparkle"></span>
+        <span class="soon-sparkle"></span>
+        <span class="soon-sparkle"></span>
+        <span class="soon-sparkle"></span>
+        <span class="soon-sparkle"></span>
+        <span class="soon-sparkle"></span>
+        <span class="soon-sparkle"></span>
+        <span class="soon-sparkle"></span>
+      </div>
+
+      <div class="soon-content">
+        <p class="soon-brand">Skyline <em>360</em> Park</p>
+        <div class="soon-pin" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none"><path d="M16 28s-9-9.2-9-15a9 9 0 1 1 18 0c0 5.8-9 15-9 15z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="16" cy="13" r="3.2" stroke="currentColor" stroke-width="2.2"/></svg>
+        </div>
+        <h1 data-park-name>Skyline 360 Park</h1>
+        <p class="soon-glitter">
+          <span class="soon-glitter-text" data-park-status-label>Opening Soon</span>
+          <span class="soon-year" data-park-status-year>(2026)</span>
+        </p>
+        <p class="soon-lead" data-park-lead>Loading park details…</p>
+        <div class="soon-actions">
+          <a class="btn btn-lg" href="#plans">Choose Your Plans</a>
+          <a class="btn btn-lg btn-ghost-light" href="contact.html">Get Notified</a>
+        </div>
+        <div class="soon-more">
+          <p>Also coming soon</p>
+          <div class="soon-more-links"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Optional: only parks with video/gallery in parks-data.js will show this -->
+    <section class="section section-blue topo park-media" data-park-media hidden aria-label="Park media">
+      <div class="wrap">
+        <div class="park-media-video" data-park-video-wrap hidden>
+          <video class="park-media-player" muted loop playsinline controls preload="none"></video>
+        </div>
+        <div class="park-media-gallery" data-park-gallery-wrap hidden data-carousel>
+          <div class="carousel-track" data-park-gallery-track></div>
+          <div class="carousel-dots" aria-label="Gallery slides"></div>
+          <button type="button" class="carousel-btn prev" aria-label="Previous slide"></button>
+          <button type="button" class="carousel-btn next" aria-label="Next slide"></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="park-hub" id="plans" data-park-hub data-park-id="" aria-label="Plans for this park">
+      <div class="park-hub-wrap">
+        <header class="park-hub-head">
+          <p class="eyebrow" data-park-eyebrow>Your park</p>
+          <h2>Choose a plan to get started</h2>
+          <p>Tap a plan to open that location’s waiver. After you sign, you get a confirmation email from this park only, then continue to this plan’s booking page.</p>
+        </header>
+
+        <div class="park-plan-grid" role="group" aria-label="Plan types"></div>
+
+        <div class="park-plan-stage" data-plan-stage hidden>
+          <h3 data-plan-stage-title>Choose your package</h3>
+          <p data-plan-stage-body>Pick the option that suits your pocket below.</p>
+        </div>
+
+        <div data-plan-lists></div>
+
+        <p class="park-hub-note">Each park manages its own waiver inbox. Signing at this location notifies this park only — then you continue to that plan’s WordPress booking page.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="footer-links" aria-label="Helpful links">
+      <a href="waiver.html?mode=walkin" data-waiver-entry>Sign a waiver</a>
+    </nav>
+    <p class="footer-copy">
+      <span class="footer-copy-brand">&copy; @skyline360</span>
+      <span class="footer-copy-sep" aria-hidden="true">·</span>
+      <span class="footer-copy-note">All Rights Reserved.</span>
+    </p>
+  </footer>
+
+  <script src="js/parks-data.js?v=20260905-10" defer></script>
+  <script src="js/location-page.js?v=20260815-64" defer></script>
+  <script src="js/main.js?v=20260905-10" defer></script>
+  <script src="js/location-guide.js?v=20260905-16" defer></script>
+  <script src="js/location-hub.js?v=20260905-10" defer></script>
+</body>
+</html>

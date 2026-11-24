@@ -1,0 +1,11 @@
+# Secrets — never commit
+waiver-id-scan-config.php
+waiver-smtp-config.php
+*_accessKeys.csv
+*.pem
+.env
+.env.*
+
+# Runtime / ops artifacts
+waiver-outbox/
+**/smtp-debug.log
